@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>食物紀錄管理系統</title>
+<link rel="stylesheet" href="Home.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar collapsed" id="sidebar">
+        <div class="header" onclick="toggleSidebar()">
+            <h3>側選單</h3>
+        </div>
+        <ul>
+            <li><a href="#" class="current" onclick="showCurrent()">當前紀錄</a></li>
+            <li><a href="#" onclick="showWaste()">廚餘桶紀錄</a></li>
+            <li><a href="#" onclick="showCompleted()">完成紀錄</a></li>
+            <!-- 其他功能頁面 -->
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>食物紀錄管理系統</h1>
+        </div>
+
+        <div class="content">
+            <div id="currentRecords" class="record-section">
+                <h2>當前紀錄</h2>
+                <div id="currentList" class="record-list">
+                    <!-- 當前紀錄將會在這裡動態顯示 -->
+                </div>
+            </div>
+
+            <div id="wasteRecords" class="record-section" style="display: none;">
+                <h2>廚餘桶紀錄</h2>
+                <div id="wasteList" class="record-list">
+                    <!-- 廚餘桶紀錄將會在這裡動態顯示 -->
+                </div>
+            </div>
+
+            <div id="completedRecords" class="record-section" style="display: none;">
+                <h2>完成紀錄</h2>
+                <div id="completedList" class="record-list">
+                    <!-- 完成紀錄將會在這裡動態顯示 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="Home.js"></script>
+
+</body>
+</html>

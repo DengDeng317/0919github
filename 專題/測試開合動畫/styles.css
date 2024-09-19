@@ -1,0 +1,37 @@
+/* Sidebar默认状态 */
+.sidebar {
+    width: 0;
+    overflow: hidden;
+    height: 100%;
+    background-color: #333;
+    transition: width 0.3s ease;
+    position: fixed;
+    /* 确保侧边栏固定在页面左侧 */
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* 设置侧边栏的层次较低 */
+}
+
+/* Sidebar展开状态 */
+.sidebar-toggled {
+    width: 250px;
+}
+
+/* 按钮样式 */
+.toggle-button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    position: absolute;
+    /* 设置按钮为绝对定位 */
+    top: 20px;
+    left: 20px;
+    /* 你可以根据需要调整按钮位置 */
+    z-index: 2;
+    /* 确保按钮的层次高于侧边栏 */
+}

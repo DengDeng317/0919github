@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    /* 背景色 */
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    /* 主頁文字色 */
+}
+
+.folder {
+    border: 1px solid #dce5d3;
+    /* 資料夾邊框色 */
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #dce5d3;
+    /*資料夾背景色  */
+    transition: background-color 0.3s;
+}
+
+.folder:hover {
+    background-color: #95b377;
+    /* 資料夾選取色 */
+}
+
+.folder h2 {
+    margin: 0;
+    color: #132708;
+    /* 資料夾標題文字色 */
+}
+
+.content {
+    display: none;
+    padding: 10px 0;
+}
+
+.record {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 150px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: #333;
+}
+
+.record:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.record img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.record p {
+    margin: 0;
+    text-align: center;
+    color: #555;
+}
+
+.content {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.content::-webkit-scrollbar {
+    height: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}

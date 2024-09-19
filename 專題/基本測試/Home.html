@@ -1,0 +1,57 @@
+<!DOCTYPE html>  <!--  宣告文件類型為 HTML5 -->
+<html lang="en"> <!--  定義文件的根元素，並設定語言屬性為英文 -->
+<head>  <!--  包含有關文檔的元數據 -->
+<meta charset="UTF-8">  <!--  設定文檔的字符編碼為 UTF-8 -->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">  <!--  使網站適應不同設備的寬度，並且不能縮放版面大小 -->
+<title>食物紀錄管理系統</title>  <!--  定義網頁的標題 -->
+<link rel="stylesheet" href="Home.css">  <!--  連接外部的 CSS 樣式表 -->
+</head>
+<body>  <!--  定義網頁的主體內容 -->
+
+<div class="container">  <!--  定義一個具有 class 為 container 的 div 元素，用於包裹網頁內 -->
+    <div class="sidebar collapsed" id="sidebar">  <!--  定義側邊欄，並且初始狀態為收起 (collapsed)。賦予 ID 為 sidebar -->
+        <div class="header" onclick="toggleSidebar()">  <!--  定義側邊欄的標頭，點擊時執行 toggleSidebar() 函數 -->
+            <h3>側選單</h3>  <!--  標頭內容顯示 "側選單" -->
+        </div>
+        <ul>  <!--  <ul>: 無序列表，包含側邊欄的選單項目 <li>: 列表項 -->
+            <li><a href="#" class="current" onclick="showCurrent()">當前紀錄</a></li>  <!--  鏈接，點擊時執行 showCurrent() 函數，顯示 "當前紀錄"， class="current" 標記當前選中的項目-->
+            <li><a href="#" onclick="showWaste()">廚餘桶紀錄</a></li>
+            <li><a href="#" onclick="showCompleted()">完成紀錄</a></li>
+            <!-- 其他功能頁面 -->
+        </ul>
+    </div>
+
+    <div class="main-content">  <!--  定義主內容區域 -->
+        <div class="header">  <!--  主內容區域的標頭 -->
+            <h1>食物紀錄管理系統</h1>  <!--  標頭顯示 "食物紀錄管理系統" -->
+        </div>
+
+        <div class="content">  <!--  主內容的具體內容區域 -->
+            <div id="currentRecords" class="record-section">  <!--  定義一個 id 為 currentRecords 的區域，class 為 record-section，用於顯示當前紀錄 -->
+                <h2>當前紀錄</h2>  <!--  二級標題，顯示 "當前紀錄" -->
+                <div id="currentList" class="record-list">  <!--  定義一個 id 為 currentList 的區域，class 為 record-list，動態顯示當前紀錄 -->
+                    <!-- 當前紀錄將會在這裡動態顯示 -->
+                </div>
+            </div>
+
+            <div id="wasteRecords" class="record-section" style="display: none;">  <!--  定義一個 id 為 wasteRecords 的區域，class 為 record-section，初始狀態為隱藏 (display: none;)，用於顯示廚餘桶紀錄 -->
+                <h2>廚餘桶紀錄</h2>  <!--  二級標題，顯示 "廚餘桶紀錄" -->
+                <div id="wasteList" class="record-list">  <!--  定義一個 id 為 wasteList 的區域，class 為 record-list，動態顯示廚餘桶紀錄 -->
+                    <!-- 廚餘桶紀錄將會在這裡動態顯示 -->
+                </div>
+            </div>
+
+            <div id="completedRecords" class="record-section" style="display: none;">  <!--  定義一個 id 為 completedRecords 的區域，class 為 record-section，初始狀態為隱藏，用於顯示完成紀錄 -->
+                <h2>完成紀錄</h2>  <!--  二級標題，顯示 "完成紀錄" -->
+                <div id="completedList" class="record-list">  <!--  定義一個 id 為 completedList 的區域，class 為 record-list，動態顯示完成紀錄 -->
+                    <!-- 完成紀錄將會在這裡動態顯示 -->
+                </div>
+            </div>
+        </div>
+    </div>  <!-- 對應的閉合標籤，結束 <div class="content">, <div class="main-content">, 及 <div class="container"> -->
+</div>
+
+<script src="Home.js"></script> <!-- 連接外部的 JavaScript 文件 Home.js -->
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+    <link rel="stylesheet" href="loginstyles.css">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>登入</h1>
+        <form id="loginForm">
+            <label for="username">請輸入帳號:</label>
+            <input type="text" id="username" name="username" placeholder="帳號" required>
+
+            <label for="password">請輸入密碼:</label>
+            <input type="password" id="password" name="password" placeholder="密碼" required>
+
+            <button type="submit">登入</button>
+        </form>
+
+        <!-- 新增註冊帳號連結 -->
+        <p class="register-link">
+            沒有帳號？<a href="register.html">註冊帳號</a>
+        </p>
+    </div>
+    <script src="loginscripts.js"></script>
+</body>
+
+</html>

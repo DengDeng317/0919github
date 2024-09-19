@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主頁</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>主頁</h1>
+    </header>
+
+    <div class="folder" onclick="toggleFolder('current')">
+        <span class="arrow" id="arrow-current">▶</span>
+        <img src="icon_current.png" alt="圖示" class="icon">
+        <h2>當前紀錄</h2>
+        <div id="current" class="content">
+            <a href="edit_record.html?id=1" class="record">
+                <img src="image1.jpg" alt="圖片">
+                <p>紀錄名稱1</p>
+                <p>有效日期: 2024-12-31</p>
+            </a>
+            <a href="edit_record.html?id=2" class="record">
+                <img src="image2.jpg" alt="圖片">
+                <p>紀錄名稱2</p>
+                <p>有效日期: 2024-12-25</p>
+            </a>
+            <a href="edit_record.html?id=3" class="record">
+                <img src="image3.jpg" alt="圖片">
+                <p>紀錄名稱3</p>
+                <p>有效日期: 2024-12-20</p>
+            </a>
+            <a href="edit_record.html?id=4" class="record">
+                <img src="image4.jpg" alt="圖片">
+                <p>紀錄名稱4</p>
+                <p>有效日期: 2024-12-15</p>
+            </a>
+            <a href="edit_record.html?id=5" class="record">
+                <img src="image5.jpg" alt="圖片">
+                <p>紀錄名稱5</p>
+                <p>有效日期: 2024-12-10</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="folder" onclick="toggleFolder('waste')">
+        <h2>廚餘桶紀錄</h2>
+        <div id="waste" class="content">
+            <a href="edit_record.html?id=6" class="record">
+                <img src="image6.jpg" alt="圖片">
+                <p>紀錄名稱6</p>
+                <p>有效日期: 2024-11-30</p>
+            </a>
+            <a href="edit_record.html?id=7" class="record">
+                <img src="image7.jpg" alt="圖片">
+                <p>紀錄名稱7</p>
+                <p>有效日期: 2024-11-25</p>
+            </a>
+            <a href="edit_record.html?id=8" class="record">
+                <img src="image8.jpg" alt="圖片">
+                <p>紀錄名稱8</p>
+                <p>有效日期: 2024-11-20</p>
+            </a>
+            <a href="edit_record.html?id=9" class="record">
+                <img src="image9.jpg" alt="圖片">
+                <p>紀錄名稱9</p>
+                <p>有效日期: 2024-11-15</p>
+            </a>
+            <a href="edit_record.html?id=10" class="record">
+                <img src="image10.jpg" alt="圖片">
+                <p>紀錄名稱10</p>
+                <p>有效日期: 2024-11-10</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="folder" onclick="toggleFolder('finished')">
+        <h2>吃完紀錄</h2>
+        <div id="finished" class="content">
+            <a href="edit_record.html?id=11" class="record">
+                <img src="image11.jpg" alt="圖片">
+                <p>紀錄名稱11</p>
+                <p>有效日期: 2024-10-31</p>
+            </a>
+            <a href="edit_record.html?id=12" class="record">
+                <img src="image12.jpg" alt="圖片">
+                <p>紀錄名稱12</p>
+                <p>有效日期: 2024-10-25</p>
+            </a>
+            <a href="edit_record.html?id=13" class="record">
+                <img src="image13.jpg" alt="圖片">
+                <p>紀錄名稱13</p>
+                <p>有效日期: 2024-10-20</p>
+            </a>
+            <a href="edit_record.html?id=14" class="record">
+                <img src="image14.jpg" alt="圖片">
+                <p>紀錄名稱14</p>
+                <p>有效日期: 2024-10-15</p>
+            </a>
+            <a href="edit_record.html?id=15" class="record">
+                <img src="image15.jpg" alt="圖片">
+                <p>紀錄名稱15</p>
+                <p>有效日期: 2024-10-10</p>
+            </a>
+        </div>
+    </div>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</body>
+
+</html>
