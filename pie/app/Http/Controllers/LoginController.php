@@ -20,7 +20,7 @@ class LoginController extends Controller
             Auth::login($user);
             return '成功登入';
         } else {
-            return '帳號密碼錯誤';
+            return back()->with('fail', '帳號密碼錯誤');
         }
 
     }

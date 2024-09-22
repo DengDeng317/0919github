@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\MemberController;
 
@@ -20,6 +21,12 @@ use App\Livewire\CounterComponent;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('login', function () {
+    return view('login');
+})->name('login');
+
+Route::post('login', [LoginController::class, 'login']);
 
 Route::get('/counter', CounterComponent::class);
 
