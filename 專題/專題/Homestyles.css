@@ -3,7 +3,7 @@ body {
     background-color: #f4f4f4;
     /* 網頁背景色 */
     margin: 0;
-    padding: 20px;
+
 }
 
 header {
@@ -50,12 +50,6 @@ header {
     /* 資料夾標題顏色 */
 }
 
-.content {
-    display: none;
-    padding: 10px 0;
-    display: flex;
-    overflow-x: auto;
-}
 
 .record {
     display: flex;
