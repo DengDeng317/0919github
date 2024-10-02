@@ -20,7 +20,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <?php include("menu.php"); ?>
+    @include('layouts.menu')
         <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
