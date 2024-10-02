@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('reminder_date');
             $table->string('notification_method');
-            $table->unsignedBigInteger('user_id')->nullable()->comment('外鍵，參考用戶ID');
+            $table->unsignedBigInteger('user_id')->nullable()->comment('用戶ID');
             $table->timestamps();
         });
     }

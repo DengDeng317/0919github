@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('labels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('parent_id')->nullable()->comment('外鍵，參考父標籤ID');
+            $table->unsignedBigInteger('parent_id')->nullable()->comment('父標籤ID');
             $table->timestamps();
         });
     }

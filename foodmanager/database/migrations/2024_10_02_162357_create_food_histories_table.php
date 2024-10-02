@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->date('action_date');
             $table->string('action_type');
-            $table->unsignedBigInteger('food_id')->nullable()->comment('外鍵，參考食物ID');
+            $table->unsignedBigInteger('food_id')->nullable()->comment('食物ID');
             $table->timestamps();
         });
     }

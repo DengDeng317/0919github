@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('active', $active)
 
 @section('main')
 

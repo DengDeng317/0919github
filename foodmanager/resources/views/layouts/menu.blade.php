@@ -2,7 +2,7 @@
     <!-- 主頁顏色 -->
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="?main=home">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -13,13 +13,13 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link " href="?main=calendar">
+    <li class="nav-item @if($active == 'calendar'){{ 'active' }}@endif">
+        <a class="nav-link" href="{{ route('calendar') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>日曆顯示</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link " href="?main=Addandedit">
+    <li class="nav-item @if($active == 'food_stock_manager'){{ 'active' }}@endif">
+        <a class="nav-link " href="{{ route('food_stock_manager') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>新增</span></a>
     </li>
