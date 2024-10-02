@@ -33,6 +33,8 @@
                 <input type="number" id="quantity" name="quantity" value="1" min="1">
                 <button type="button" id="increase-quantity">+</button>
             </div>
+            <label for="quantity">金額:</label>
+            <input type="text" id="food-name" name="food-name" required>
         </div>
         <div class="form-group">
             <label for="expiry-date">有效期限:</label>
