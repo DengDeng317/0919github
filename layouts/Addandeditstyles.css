@@ -1,78 +1,27 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
-    margin: 0;
-    padding: 0;
+/* 自定義選單內顯示圖片的樣式 */
+.custom-select-icon option {
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    padding-left: 30px;
+    height: 30px;
 }
 
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+.custom-select-icon option[data-icon="vegetable"] {
+    background-image: url('path/to/vegetable-icon.png');
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
+.custom-select-icon option[data-icon="fruit"] {
+    background-image: url('path/to/fruit-icon.png');
 }
 
-.form-group {
-    margin-bottom: 15px;
+.custom-select-icon option[data-icon="snack"] {
+    background-image: url('path/to/snack-icon.png');
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+.custom-select-icon option[data-icon="drink"] {
+    background-image: url('path/to/drink-icon.png');
 }
 
-input[type="text"],
-input[type="date"],
-input[type="number"],
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.quantity-control {
-    display: flex;
-    align-items: center;
-}
-
-.quantity-control button {
-    padding: 0 10px;
-    font-size: 18px;
-    border: 1px solid #ddd;
-    background-color: #f0f0f0;
-    cursor: pointer;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button[type="submit"]:hover {
-    background-color: #218838;
-}
-
-@media (max-width: 600px) {
-    .container {
-        margin: 20px;
-        padding: 15px;
-    }
+.custom-select-icon option[data-icon="meat"] {
+    background-image: url('path/to/meat-icon.png');
 }
