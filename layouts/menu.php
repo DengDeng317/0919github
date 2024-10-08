@@ -1,4 +1,5 @@
 <ul class="navbar-nav bg-gradient-success sidebar sidebar-light accordion" id="accordionSidebar">
+    <!-- class=collapse collapse-horizontal  -->
     <!-- 主頁顏色 -->
 
     <!-- Sidebar - Brand -->
@@ -120,5 +121,6 @@
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
+    
 
 </ul>

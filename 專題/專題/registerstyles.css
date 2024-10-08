@@ -1,9 +1,11 @@
+/* 基本樣式重置 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 設置整個頁面的背景和垂直居中布局 */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -13,43 +15,109 @@ body {
     align-items: center;
 }
 
+/* 註冊表單的容器設置 */
 .register-container {
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
     text-align: center;
 }
 
+/* 標題樣式 */
 h1 {
     margin-bottom: 1.5rem;
     color: #333;
+    font-size: 2rem;
 }
 
+/* 表單標籤的樣式 */
 label {
     display: block;
+    text-align: left;
     margin-bottom: 0.5rem;
     color: #555;
+    font-size: 1rem;
+    width: 100%;
 }
 
+/* 表單輸入框的樣式 */
 input {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
 }
 
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* 密碼輸入框和眼睛圖標的包裹容器 */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* 密碼輸入框內的眼睛圖標 */
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-90%);
+    /* 這個可以精確控制眼睛圖標的垂直位置 */
+    cursor: pointer;
+    color: #555;
+    font-size: 1.2rem;
+}
+
+/* 懸停在眼睛圖標時的顏色變化 */
+.password-toggle:hover {
+    color: #333;
+}
+
+/* 提示文字樣式 */
+.form-text {
+    font-size: 0.85rem;
+    text-align: left;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+/* 密碼強度顯示 */
+#passwordStrength {
+    color: red;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+/* 密碼不一致提示 */
+#passwordMatch {
+    color: red;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+/* 按鈕樣式 */
 button {
     width: 100%;
-    padding: 0.7rem;
+    padding: 0.75rem;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {

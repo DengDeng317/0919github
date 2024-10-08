@@ -64,7 +64,16 @@
                         <!-- 其他記錄事項 -->
                     </div>
                 </div>
-
-
-                <div class="container-fluid">
+                <div class="position-relative">
+                <div class="position-absolute bottom-0 end-0">
+                <a href="#" class="btn btn-primary btn-lg rounded-circle m-4" id="floatingBtn">
+                    +
+                    
+                    </a>
                 </div>
+                  
+                    </div>
+                <div class="container-fluid">
+
+                </div>
+                
