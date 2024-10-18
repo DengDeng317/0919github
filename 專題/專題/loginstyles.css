@@ -1,71 +1,271 @@
+/* 基本樣式重置 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 設置整個頁面的背景和垂直居中布局 */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-.login-container {
+/* 登入表單的容器設置 */
+.page-container {
     background-color: white;
-    padding: 2rem;
+    padding: 2.5rem; /* 增加 padding 以保持寬鬆的空間 */
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;/* 調整容器寬度 */
     text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+/* 標題樣式 */
 h1 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem; /* 增加與其他元素的間距 */
     color: #333;
+    font-size: 2.2rem; /* 放大標題字體 */
+    font-weight: bold; /* 加粗字體 */
 }
 
+/* 表單標籤的樣式 */
 label {
     display: block;
     margin-bottom: 0.5rem;
     color: #555;
+    font-size: 1.1rem; /* 放大表單標籤的字體 */
+    text-align: left;
 }
 
+/* 輸入框樣式 */
 input {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    padding: 0.85rem; /* 放大輸入框的 padding */
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1.1rem; /* 放大輸入框字體 */
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
 }
 
+input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* 密碼顯示/隱藏控制的眼睛圖標樣式 */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;/* 將眼睛圖標設置為相對於輸入框居中 */
+    right: 10px; /* 讓眼睛圖標靠右 */
+    transform: translateY(-90%); /* 修正眼睛圖標的垂直居中問題 */
+    cursor: pointer;
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.password-toggle:hover {
+    color: #333;
+}
+
+/* 記住密碼和忘記密碼的容器設置 */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.8rem; /* 增加間距 */
+}
+
+/* 記住密碼的選項，確保 checkbox 和文字在同一行 */
+.remember-me {
+    display: inline-flex; /* 強制水平排列 */
+    align-items: center;
+    gap: 0.2rem; /* 控制 checkbox 和文字之間的距離 */
+    white-space: nowrap; /* 確保文字不換行 */
+}
+
+.remember-me input {
+    margin: 0;
+}
+
+.remember-me label {
+    font-size: 1rem; /* 調整記住密碼字體大小 */
+    color: #555;
+    margin: 0;
+}
+
+/* 忘記密碼連結樣式 */
+.forgot-password a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 1rem; /* 調整忘記密碼的字體大小 */
+    margin: 0;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* 按鈕樣式 */
 button {
     width: 100%;
-    padding: 0.7rem;
+    padding: 0.9rem; /* 放大按鈕的內邊距 */
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem; /* 放大按鈕字體 */
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
-.register-link {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #555;
+/* 右上角書頁翻轉效果的按鈕 */
+.page-corner-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px; /* 縮小寬度 */
+    height: 80px; /* 縮小高度 */
+    background-color: #4CAF50;
+    border-radius: 0 0 0 20px; /* 調整邊角弧度 */
+    color: white;
+    font-size: 1rem; /* 調整字體大小 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.register-link a {
-    color: #4CAF50;
+/* 讓 a 元素占據整個按鈕區域 */
+.page-corner-right a, .page-corner-left a {
+    color: white;
+    text-decoration: none;
+    width: 100%;    /* 讓 a 元素寬度占滿父元素 */
+    height: 100%;   /* 讓 a 元素高度占滿父元素 */
+    display: flex;  /* 讓 a 元素的內容居中 */
+    justify-content: center;
+    align-items: center;
+}
+
+.page-corner-right:hover {
+    background-color: #45a049;
+}
+
+.page-corner-right a {
+    color: white;
     text-decoration: none;
 }
 
-.register-link a:hover {
-    text-decoration: underline;
+/* 針對 Modal 的自定義樣式 */
+.modal-content {
+    max-height: 90vh; /* 限制 Modal 內容的高度 */
+    overflow-y: auto; /* 讓 Modal 內容可以垂直滾動 */
+    border-radius: 10px; /* 確保 Modal 邊緣依然圓潤 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transform: translateY(-10%); /* 讓 modal 保持垂直居中 */
+}
+
+.modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+    display: flex; /* 使用 flex 讓標題與 X 按鈕在同一行 */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 1.5rem; /* 調整標題字體大小 */
+    color: #333;
+    margin: 0; /* 移除標題的預設外邊距 */
+}
+
+.modal-header .close {
+    font-size: 2.5rem; /* 調整 X 按鈕大小 */
+    color: #555;
+    margin: 0; /* 縮小 X 按鈕的左右間距 */
+    width: auto; /* 自適應寬度，不佔用過多空間 */
+    padding: 0;
+    width: 30px; /* 固定寬度 */
+    height: 30px; /* 固定高度，讓 X 按鈕變成正方形 */
+    display: flex; /* 使用 flex 讓 X 居中 */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px; /* 添加圓角讓按鈕更美觀 */
+    background-color: #f0f0f0; /* 給 X 按鈕添加背景色 */
+    transition: background-color 0.2s ease;
+    box-shadow: none; /* 移除黑框 */
+}
+
+.modal-header .close:focus {
+    outline: none; /* 防止按下時出現黑框 */
+    box-shadow: none; /* 防止按下時出現黑框 */
+}
+
+
+.modal-header .close:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.modal-body {
+    padding-top: 10px;
+}
+
+/* 讓 Modal 保持在正中央 */
+.modal-dialog {
+    max-height: 90vh; /* 讓 Modal 的高度最多占據視窗的 90% */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh; /* 讓 Modal 保持垂直居中 */
+}
+
+#sendEmailButton {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#sendEmailButton:hover {
+    background-color: #45a049;
+}
+
+#countdownText {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: red;
+    text-align: center;
+}
+/* 禁用背景滾動 */
+body.modal-open {
+    overflow: hidden; /* 禁用滾動 */
 }

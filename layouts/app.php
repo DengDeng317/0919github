@@ -14,101 +14,101 @@
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-            rel="stylesheet">
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css?v=2" rel="stylesheet">
-    <link rel="stylesheet" href="Homestyles.css">
+    <link rel="stylesheet" href="event_manage.css">
 
 </head>
 
 <body id="page-top">
-<!-- Page Wrapper -->
-<div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Sidebar -->
-    <?php include("menu.php"); ?>
-    <!-- End of Sidebar -->
+        <!-- Sidebar -->
+        <?php include("menu.php"); ?>
+        <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column bg-gradient-primary">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column bg-gradient-primary">
 
-        <!-- Main Content -->
+            <!-- Main Content -->
 
-        <div id="content">
-            <!-- Topbar -->
-            <?php include("nav.php"); ?>
-            <!-- End of Topbar -->
+            <div id="content">
+                <!-- Topbar -->
+                <?php include("nav.php"); ?>
+                <!-- End of Topbar -->
 
-            <!-- Begin Page Content 主頁內容 -->
-            <?php $main = (isset($_GET['main'])) ? $_GET['main'] : 'home'; ?>
-            <?php include($main . ".php"); ?>
+                <!-- Begin Page Content 主頁內容 -->
+                <?php $main = (isset($_GET['main'])) ? $_GET['main'] : 'home'; ?>
+                <?php include($main . ".php"); ?>
 
-            <!-- Page Heading 內容傳送門 -->
+                <!-- Page Heading 內容傳送門 -->
 
-        </div>
-        <!-- End of Main Content -->
+            </div>
+            <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <!-- <footer class="sticky-footer bg-white">
+            <!-- Footer -->
+            <!-- <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
                     <span>我 &copy; 好累喔</span>
                 </div>
             </div>
         </footer>-->
-        <!-- End of Footer -->
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
+    <a href="#" class="btn btn-primary btn-lg rounded-circle position-fixed bottom-0 end-0 m-4" id="floatingBtn">
+        +
+    </a>
 
-</div>
-<!-- End of Page Wrapper -->
-<a href="#" class="btn btn-primary btn-lg rounded-circle position-fixed bottom-0 end-0 m-4" id="floatingBtn">
-    +
-</a>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-<!-- Scroll to Top Button-->
-<a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-</a>
-
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Custom scripts for all pages-->
-<script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
 
-<!-- 額外加的 -->
-<script src="Home.js"></script>
+    <!-- 額外加的 -->
+    <script src="Home.js"></script>
 
-<script src="Homescripts.js"></script>
+    <script src="Homescripts.js"></script>
 </body>
 
 </html>

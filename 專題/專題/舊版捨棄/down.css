@@ -1,0 +1,71 @@
+.custom-select-container {
+    width: 400px; /* 與第三張圖片保持一致的寬度 */
+    position: relative;
+}
+
+.select-selected {
+    background-color: #7397b8; /* 自訂格子的背景顏色 */
+    color: #333333; /* 修改文字顏色 */
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 8px; /* 添加圓角效果 */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+.select-selected img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+/* 使用自定義的箭頭圖標替代預設符號 */
+.select-selected::after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-image: url('path-to-your-arrow-image.png'); /* 替換為你的箭頭圖片的路徑 */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.select-items {
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #000;
+    border-top: none;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 99;
+    display: none;
+    border-radius: 0 0 8px 8px; /* 添加圓角效果，讓下拉部分和上面匹配 */
+}
+
+.select-items div {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.select-items div img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.select-items div:hover {
+    background-color: #cfe8f6; /* 懸停時改變背景顏色 */
+}
+
+.selected-item-active {
+    background-color: #0078a8;
+    color: #ffffff; /* 已選擇項目變色，文字變白 */
+}

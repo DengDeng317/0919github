@@ -1,3 +1,4 @@
+// 控制密碼顯示/隱藏功能
 document.addEventListener('DOMContentLoaded', function () {
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
@@ -90,3 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+// 替換書腳按鈕跳轉至登入頁面
+function flipPageToLogin() {
+    window.location.href = 'Login.html';
+}

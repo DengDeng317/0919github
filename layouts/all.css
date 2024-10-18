@@ -1,0 +1,10 @@
+/* 在 all.css 中覆蓋 btn-info 樣式 */
+.btn-info {
+    background-color: #ff0000; /* 例如 #17a2b8 可以改成你想要的顏色 */
+    border-color: #ff00ff; /* 邊框顏色可以與背景顏色相同或其他顏色 */
+  }
+  
+  .btn-info:hover {
+    background-color: #ff0000; /* 修改懸停狀態下的顏色 */
+    border-color: #ff00ff;
+  }

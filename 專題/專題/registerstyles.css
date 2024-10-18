@@ -16,7 +16,7 @@ body {
 }
 
 /* 註冊表單的容器設置 */
-.register-container {
+.page-container {
     background-color: white;
     padding: 2rem;
     border-radius: 10px;
@@ -24,6 +24,10 @@ body {
     width: 100%;
     max-width: 400px;
     text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* 標題樣式 */
@@ -36,14 +40,13 @@ h1 {
 /* 表單標籤的樣式 */
 label {
     display: block;
-    text-align: left;
     margin-bottom: 0.5rem;
     color: #555;
     font-size: 1rem;
-    width: 100%;
+    text-align: left;
 }
 
-/* 表單輸入框的樣式 */
+/* 輸入框樣式 */
 input {
     width: 100%;
     padding: 0.75rem;
@@ -60,50 +63,63 @@ input:focus {
     outline: none;
 }
 
-/* 密碼輸入框和眼睛圖標的包裹容器 */
+/* 密碼顯示/隱藏控制的眼睛圖標樣式 */
 .password-wrapper {
     position: relative;
     width: 100%;
 }
 
-/* 密碼輸入框內的眼睛圖標 */
 .password-toggle {
     position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-90%);
-    /* 這個可以精確控制眼睛圖標的垂直位置 */
+    top: 50%; /* 將眼睛圖標設置為相對於輸入框居中 */
+    right: 10px;/* 讓眼睛圖標靠右 */
+    transform: translateY(-100%);/* 修正眼睛圖標的垂直居中問題 */
     cursor: pointer;
     color: #555;
     font-size: 1.2rem;
 }
 
-/* 懸停在眼睛圖標時的顏色變化 */
 .password-toggle:hover {
     color: #333;
 }
 
-/* 提示文字樣式 */
-.form-text {
-    font-size: 0.85rem;
-    text-align: left;
-    margin-top: -1rem;
-    margin-bottom: 1.5rem;
-    color: #666;
+/* 左上角書頁翻轉效果的按鈕 */
+.page-corner-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px; /* 縮小寬度 */
+    height: 70px; /* 縮小高度 */
+    background-color: #4CAF50;
+    border-radius: 0 0 20px 0; /* 調整邊角弧度 */
+    color: white;
+    font-size: 1rem; /* 調整字體大小 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* 密碼強度顯示 */
-#passwordStrength {
-    color: red;
-    text-align: left;
-    margin-bottom: 1rem;
+
+/* 讓 a 元素占據整個按鈕區域 */
+.page-corner-right a, .page-corner-left a {
+    color: white;
+    text-decoration: none;
+    width: 100%;    /* 讓 a 元素寬度占滿父元素 */
+    height: 100%;   /* 讓 a 元素高度占滿父元素 */
+    display: flex;  /* 讓 a 元素的內容居中 */
+    justify-content: center;
+    align-items: center;
 }
 
-/* 密碼不一致提示 */
-#passwordMatch {
-    color: red;
-    text-align: left;
-    margin-bottom: 1rem;
+.page-corner-left:hover {
+    background-color: #45a049;
+}
+
+.page-corner-left a {
+    color: white;
+    text-decoration: none;
 }
 
 /* 按鈕樣式 */
@@ -116,10 +132,33 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    margin-top: 1rem;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
+}
+
+/* 提示文字樣式 */
+.form-text {
+    font-size: 0.85rem;
+    text-align: left;
+    position: relative; /* 使用 relative 來調整位置 */
+    top: -20px; /* 使用 top 調整提示文字的垂直位置，負值向上移動 */
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+#passwordStrength {
+    color: red;
+    text-align: left;
+    position: relative; /* 使用 relative 來調整位置 */
+    top: -20px; /* 使用 top 調整提示文字的位置 */
+    margin-bottom: 1rem;
+}
+
+#passwordMatch {
+    color: red;
+    text-align: left;
+    margin-bottom: 1rem;
 }

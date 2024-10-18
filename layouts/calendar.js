@@ -1,10 +1,18 @@
 const events = {
-    '2024-09-28': [
+    '2024-09-18': [
         { name: '蘋果', image: 'apple.jpg', expiry: '2024-09-28' },
         { name: '牛奶', image: 'milk.jpg', expiry: '2024-09-28' }
     ],
     '2024-09-29': [
         { name: '麵包', image: 'bread.jpg', expiry: '2024-09-29' }
+    ],
+    '2024-10-19': [
+        { name: '蘋果', image: 'apple.jpg', expiry: '2024-09-28' },
+        { name: '牛奶', image: 'milk.jpg', expiry: '2024-09-28' }
+    ], 
+    '2024-10-28': [
+        { name: '蘋果', image: 'apple.jpg', expiry: '2024-09-28' },
+        { name: '牛奶', image: 'milk.jpg', expiry: '2024-09-28' }
     ]
 };
 
@@ -13,10 +21,7 @@ let currentYear, currentMonth, selectedDateElement = null;
 // 初始化頁面時顯示提示文字
 function initializePage() {
     const eventListDiv = document.getElementById('event-list');
-    const placeholder = document.createElement('div');
-    placeholder.className = 'event-item empty';  // 設置和其他事件一致的容器
-    placeholder.innerHTML = '<p>請選擇上方日期檢視</p>';  // 提示語句
-    eventListDiv.appendChild(placeholder);
+    eventListDiv.innerHTML = '<div class="no-interaction"><p>請選擇上方日期檢視</p></div>';  // 顯示提示
 }
 
 function createCalendar(year, month) {
@@ -26,7 +31,7 @@ function createCalendar(year, month) {
     const calendar = document.getElementById('calendar');
     calendar.innerHTML = ''; // 清空日曆
 
-    const firstDay = new Date(Date.UTC(year, month, 1)); // 使用UTC，避免時區問題
+    const firstDay = new Date(Date.UTC(year, month, 1));
     const lastDay = new Date(Date.UTC(year, month + 1, 0));
     const startOfWeek = new Date(firstDay);
     startOfWeek.setUTCDate(firstDay.getUTCDate() - firstDay.getUTCDay());
@@ -65,11 +70,12 @@ function createCalendar(year, month) {
     document.getElementById('month-picker').value = `${year}-${String(month + 1).padStart(2, '0')}`;
 }
 
+// 檢查是否為即將過期的物品
 function isUpcoming(date) {
     const today = new Date();
     const diffTime = date - today;
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays <= 3 && diffDays >= 0;
+    return diffDays <= 7 && diffDays >= 0;  // 快過期的判定範圍：7天內
 }
 
 function selectDate(date, dayElement) {
@@ -94,7 +100,7 @@ function showEvents(date) {
 
     if (eventList.length === 0) {
         const emptyItem = document.createElement('div');
-        emptyItem.className = 'event-item empty';  // 使用相同樣式的容器
+        emptyItem.className = 'event-item empty';
         emptyItem.innerHTML = `<p>尚無資料</p>`;
         emptyItem.addEventListener('click', () => {
             alert(`新增 ${date} 的食物`);
@@ -103,7 +109,7 @@ function showEvents(date) {
     } else {
         eventList.forEach(event => {
             const eventItem = document.createElement('div');
-            eventItem.className = 'event-item'; // 正常事件樣式
+            eventItem.className = 'event-item';
             eventItem.innerHTML = `
                 <img src="${event.image}" alt="${event.name}">
                 <p>${event.name} - 過期日期: ${event.expiry}</p>
@@ -119,7 +125,6 @@ function showEvents(date) {
 // 初始化頁面
 initializePage();
 
-// 設置月份變化和日期選擇的邏輯
 document.getElementById('month-picker').addEventListener('input', (e) => {
     const [year, month] = e.target.value.split('-').map(Number);
     createCalendar(year, month - 1);

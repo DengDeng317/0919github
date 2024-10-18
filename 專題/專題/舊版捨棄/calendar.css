@@ -6,7 +6,6 @@ body {
     padding: 20px;
 }
 
-/* 容器設置 */
 .container {
     max-width: 600px;
     margin: auto;
@@ -16,11 +15,19 @@ body {
     padding: 20px;
 }
 
-/* 月份導航 */
+/* 將 h1 標題置中 */
+h1 {
+    text-align: center;  /* 置中 */
+    color: #333;
+    font-size: 2rem;     /* 你可以調整字體大小 */
+    margin-bottom: 20px; /* 調整底部的間距 */
+}
+
 .month-navigation {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     margin-bottom: 10px;
 }
 
@@ -28,11 +35,14 @@ body {
     background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    margin: 0 5px;
 }
 
 .month-navigation button:hover {
@@ -40,16 +50,24 @@ body {
     transform: scale(1.1);
 }
 
-/* 月份選擇輸入框 */
+/* 調整年月選擇輸入框樣式 */
 input[type="month"] {
-    width: 60%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    width: 200px;       /* 調整寬度 */
+    height: 30px;       /* 調整高度 */
+    padding: 10px 15px; /* 控制上下和左右的內邊距 */
+    border-radius: 8px; /* 圓角效果 */
+    border: 2px solid #ccc; /* 更明顯的邊框 */
     text-align: center;
+    font-size: 1.2rem;  /* 放大字體 */
+    transition: border-color 0.3s, height 0.2s ease;
 }
 
-/* 星期排版 */
+/* 獲得焦點時的樣式 */
+input[type="month"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
 .weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -59,7 +77,6 @@ input[type="month"] {
     color: #555;
 }
 
-/* 日期格子 */
 #calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -67,13 +84,13 @@ input[type="month"] {
 }
 
 .day {
-    padding: 20px;
+    padding: 15px;
     border: 3px solid #ddd;
     text-align: center;
     border-radius: 6px;
     background-color: #f9f9f9;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s, opacity 0.3s;
 }
 
 .today {
@@ -90,13 +107,11 @@ input[type="month"] {
     border: 2px solid #FF4500;
 }
 
-/* 半透明預覽效果 */
 .preview {
-    background-color: rgb(192, 189, 189);
+    background-color: rgba(192, 189, 189, 0.2);
     color: #727272;
 }
 
-/* 事件列表 */
 #events {
     margin-top: 20px;
     padding: 10px;
@@ -106,7 +121,13 @@ input[type="month"] {
     min-height: 100px; /* 保證列表區域有最小高度 */
 }
 
-/* 事件項目樣式 */
+#events p {
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
 .event-item {
     display: flex;
     align-items: center;
@@ -115,6 +136,12 @@ input[type="month"] {
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.event-item:hover {
+    background-color: #e0e0e0;
 }
 
 .event-item img {
@@ -125,14 +152,15 @@ input[type="month"] {
     margin-right: 10px;
 }
 
-/* 無資料的事件項目樣式 */
 .event-item.empty {
     justify-content: center;
-    background-color: #f0f0f0;
-    color: #888;
-    height: 50px;
+    text-align: center;
+    color: #999;
 }
 
-.dropdown-item :hover {
-    background-color: #0bc524; /* 自訂格子的背景顏色 */
+/* 選取的日期格子 */
+.selected {
+    background-color: #007bff;
+    color: white;
+    border: 3px solid #0056b3;
 }

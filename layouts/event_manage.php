@@ -1,4 +1,7 @@
-<link rel="stylesheet" href="Addandeditscript.css"> <!-- 引入外部CSS -->
+<link rel="stylesheet" href="Addandeditscript.css"> <!-- 新增與編輯選單的CSS -->
+<link rel="stylesheet" href="event_manage.css"><!-- 事件管理的CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <div class="folder" id="current-folder">
     <div class="folder-header" onclick="toggleFolder('current')">
         <span class="arrow" id="arrow-current">▼</span>
@@ -97,9 +100,8 @@
 </div>
 <!-- 浮動按鈕 -->
 <div class="fixed-bottom">
-    <div class="position-fixed" style="right: 15px; bottom: 80px;">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-info btn-lg rounded-circle shadow" id="floatingBtn" data-toggle="modal" data-target=".bd-example-modal-lg">
+    <div class="position-fixed" style="right: 13px; bottom: 80px;">
+        <button type="button" class="btn btn-success btn-lg rounded-circle shadow" id="floatingBtn" data-toggle="modal" data-target=".bd-example-modal-lg">
             <i class="fas fa-plus"></i>
         </button>
     </div>
@@ -109,7 +111,7 @@
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header bg-info text-white">
+            <div class="modal-header bg-success text-white">
                 <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-utensils mr-2"></i>新增食物</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -120,55 +122,74 @@
                     <form id="food-form">
                         <div class="form-group">
                             <label for="food-name"><i class="fas fa-carrot mr-2"></i>食物名稱:</label>
-                            <input type="text" class="form-control border-info" id="food-name" name="food-name" required>
+                            <input type="text" class="form-control border-success" id="food-name" name="food-name" required>
                         </div>
                         <div class="form-group">
                             <label for="category"><i class="fas fa-th-large mr-2"></i>類別:</label>
-                            <select id="category" name="category" class="form-control border-info custom-select-icon">
-                                <option value="蔬菜" data-icon="vegetable">蔬菜</option>
-                                <option value="水果" data-icon="fruit">水果</option>
-                                <option value="餅乾" data-icon="snack">餅乾</option>
-                                <option value="飲料" data-icon="drink">飲料</option>
-                                <option value="肉類" data-icon="meat">肉類</option>
-                            </select>
+                            <div class="custom-dropdown" id="category-dropdown">
+
+                                <div class="form-group">
+                                    <div class="dropdown w-100">
+                                        <button class="btn btn-outline-success dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="img/01.png" alt="蔬菜" class="dropdown-icon"> 蔬菜
+                                        </button>
+                                        <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+                                            <div class="dropdown-item" data-value="蔬菜" data-img="img/01.png">
+                                                <img src="img/01.png" alt="蔬菜" class="dropdown-icon"> 蔬菜
+                                            </div>
+                                            <div class="dropdown-item" data-value="水果" data-img="img/fruit-icon.png">
+                                                <img src="img/fruit-icon.png" alt="水果" class="dropdown-icon"> 水果
+                                            </div>
+                                            <div class="dropdown-item" data-value="餅乾" data-img="img/snack-icon.png">
+                                                <img src="img/snack-icon.png" alt="餅乾" class="dropdown-icon"> 餅乾
+                                            </div>
+                                            <div class="dropdown-item" data-value="飲料" data-img="img/drink-icon.png">
+                                                <img src="img/drink-icon.png" alt="飲料" class="dropdown-icon"> 飲料
+                                            </div>
+                                            <div class="dropdown-item" data-value="肉類" data-img="img/meat-icon.png">
+                                                <img src="img/meat-icon.png" alt="肉類" class="dropdown-icon"> 肉類
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <input type="hidden" id="category" name="category" value="蔬菜">
                         </div>
                         <div class="form-group">
                             <label for="storage-location"><i class="fas fa-map-marker-alt mr-2"></i>存放位置:</label>
-                            <input type="text" class="form-control border-info" id="storage-location" name="storage-location" placeholder="例如: 冰箱、櫥櫃">
+                            <input type="text" class="form-control border-success" id="storage-location" name="storage-location" placeholder="例如: 冰箱、櫥櫃">
                         </div>
                         <div class="form-group">
                             <label for="purchase-date"><i class="fas fa-calendar-alt mr-2"></i>購買日期:</label>
-                            <input type="date" class="form-control border-info" id="purchase-date" name="purchase-date">
+                            <input type="date" class="form-control border-success" id="purchase-date" name="purchase-date">
                         </div>
                         <div class="form-group">
                             <label for="quantity"><i class="fas fa-sort-numeric-up mr-2"></i>數量:</label>
                             <div class="input-group">
-                                <!-- 自定義的「-」按鈕 -->
                                 <div class="input-group-prepend">
-                                    <button type="button" class="btn btn-outline-info" id="decrease-quantity">-</button>
+                                    <button type="button" class="btn btn-success text-white" id="decrease-quantity">-</button>
                                 </div>
-                                <!-- 帶有上下箭頭的 input 元素 -->
-                                <input type="number" class="form-control text-center border-info" id="quantity" name="quantity" value="1" min="1">
-                                <!-- 自定義的「+」按鈕 -->
+                                <input type="number" class="form-control text-center border-success" id="quantity" name="quantity" value="1" min="1">
                                 <div class="input-group-append">
-                                    <button type="button" class="btn btn-outline-info" id="increase-quantity">+</button>
+                                    <button type="button" class="btn btn-success text-white" id="increase-quantity">+</button>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="price"><i class="fas fa-dollar-sign mr-2"></i>金額:</label>
-                            <input type="text" class="form-control border-info" id="price" name="price" required>
+                            <input type="text" class="form-control border-success" id="price" name="price" required>
                         </div>
                         <div class="form-group">
                             <label for="expiry-date"><i class="fas fa-calendar-check mr-2"></i>有效期限:</label>
-                            <input type="date" class="form-control border-info" id="expiry-date" name="expiry-date">
+                            <input type="date" class="form-control border-success" id="expiry-date" name="expiry-date">
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer bg-light">
-                <!-- "新增食物" 按鈕 -->
-                <button type="submit" form="food-form" class="btn btn-info btn-block">
+                <button type="submit" form="food-form" class="btn btn-success btn-block">
                     <i class="fas fa-plus-circle mr-2"></i>新增食物
                 </button>
             </div>
@@ -177,7 +198,9 @@
 </div>
 
 <div class="container-fluid">
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="Addandeditscript.js"></script>
-
+    <script src="event_manage.js"></script>
 </div>

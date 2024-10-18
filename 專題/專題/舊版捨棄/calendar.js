@@ -13,10 +13,7 @@ let currentYear, currentMonth, selectedDateElement = null;
 // 初始化頁面時顯示提示文字
 function initializePage() {
     const eventListDiv = document.getElementById('event-list');
-    const placeholder = document.createElement('div');
-    placeholder.className = 'event-item empty';  // 設置和其他事件一致的容器
-    placeholder.innerHTML = '<p>請選擇上方日期檢視</p>';  // 提示語句
-    eventListDiv.appendChild(placeholder);
+    eventListDiv.innerHTML = '<p>請選擇上方日期檢視</p>';  // 顯示提示
 }
 
 function createCalendar(year, month) {
@@ -94,7 +91,7 @@ function showEvents(date) {
 
     if (eventList.length === 0) {
         const emptyItem = document.createElement('div');
-        emptyItem.className = 'event-item empty';  // 使用相同樣式的容器
+        emptyItem.className = 'event-item empty';
         emptyItem.innerHTML = `<p>尚無資料</p>`;
         emptyItem.addEventListener('click', () => {
             alert(`新增 ${date} 的食物`);
@@ -103,7 +100,7 @@ function showEvents(date) {
     } else {
         eventList.forEach(event => {
             const eventItem = document.createElement('div');
-            eventItem.className = 'event-item'; // 正常事件樣式
+            eventItem.className = 'event-item';
             eventItem.innerHTML = `
                 <img src="${event.image}" alt="${event.name}">
                 <p>${event.name} - 過期日期: ${event.expiry}</p>

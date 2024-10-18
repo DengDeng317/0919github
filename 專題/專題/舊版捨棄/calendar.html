@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>日曆事件管理</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="calendar.css">
 </head>
 <body>
     <div class="container">
         <h1>日曆事件管理</h1>
         <div class="month-navigation">
             <button id="prev-month">&lt;</button>
-            <input type="month" id="month-picker" />
+            <input type="month" id="month-picker">
             <button id="next-month">&gt;</button>
         </div>
         <div class="weekdays">
@@ -25,10 +25,10 @@
         </div>
         <div id="calendar"></div>
         <div id="events">
-            <h3>事件列表</h3>
-            <button id="confirm-button" style="display:none;">確定</button>
+            <h3>食物列表</h3>
+            <div id="event-list"></div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="calendar.js"></script>
 </body>
 </html>
