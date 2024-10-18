@@ -1,0 +1,96 @@
+/* 在 all.css 中覆蓋 btn-info 樣式 */
+.btn-info {
+    background-color: #ff0000; /* 例如 #17a2b8 可以改成你想要的顏色 */
+    border-color: #ff00ff; /* 邊框顏色可以與背景顏色相同或其他顏色 */
+}
+
+.btn-info:hover {
+    background-color: #ff0000; /* 修改懸停狀態下的顏色 */
+    border-color: #ff00ff;
+}
+
+/* 主頁顏色 傳送門*/
+.bg-gradient-primary {
+    background-color: #dce5d3;
+    background-image: linear-gradient(180deg, #dce5d3 10%, #dce5d3 100%);
+}
+
+/* 測邊欄 顏色 可漸層 傳送門 */
+.bg-gradient-success {
+    background-color: #4f7d25;
+    background-image: linear-gradient(180deg, #4f7d25 10%, #4f7d25 100%);
+}
+
+/*顏色修改 傳送門*/
+.sidebar-light .sidebar-brand {
+    /*最上面的LOGO圖片+文字*/
+    color: #ffffff;
+}
+
+.sidebar-light hr.sidebar-divider {
+    border-top: 1px solid #ffffff;
+    /*#eaecf4*/
+    /*一行直線的顏色*/
+}
+
+.sidebar-light .sidebar-heading {
+    color: #ffffff;
+/*#b7b9cc*/
+/*兩個小標題 文字顏色*/
+}
+
+.sidebar-light .nav-item .nav-link {
+    color: #ffffff;
+    /*#858796*/
+    /*上至下 前三文字的顏色*/
+}
+.sidebar-light .nav-item .nav-link i {
+    color: #ffffff;
+    /*#d1d3e2*/
+    /*上至下 前三圖案的顏色*/
+}
+
+.sidebar-light .nav-item .nav-link:active,
+.sidebar-light .nav-item .nav-link:focus,
+.sidebar-light .nav-item .nav-link:hover {
+    color: #dce5d3;
+    /*#6e707e*/
+    /*上至下 前三移過去文字的顏色*/
+}
+.sidebar-light .nav-item .nav-link:active i,
+.sidebar-light .nav-item .nav-link:focus i,
+.sidebar-light .nav-item .nav-link:hover i {
+    color: #dce5d3;
+    /*#6e707e*/
+    /*上至下 前三移過去圖案LOGO的顏色*/
+}
+.sidebar-light .nav-item .nav-link[data-toggle="collapse"]::after {
+    color: #ffffff;
+    /*#b7b9cc*/
+    /*小欄位開啟欄 右邊的鍵頭>*/
+}
+.sidebar-light .nav-item.active .nav-link {
+    color: #ffffff;
+    /*#6e707e*/
+    /*第四大欄名稱 文字顏色*/
+}
+.sidebar-light .nav-item.active .nav-link i {
+    color: #ffffff;
+    /*#6e707e*/
+    /*第四大欄名稱 圖片顏色*/
+}
+.sidebar-light #sidebarToggle {
+    background-color: #ffffff;
+    /*#eaecf4*/
+    /*收縮按鈕的背景顏色*/
+}
+.sidebar-light #sidebarToggle::after {
+    color: #4f7d25;
+    /*#b7b9cc*/
+    /*收縮按鈕 箭頭文字的顏色*/
+}
+.sidebar-light #sidebarToggle:hover {
+    background-color: #dce5d3;
+    /*#dddfeb*/
+    /*收縮按鈕 移動過去的背景顏色*/
+}

@@ -18,8 +18,8 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.css?v=2" rel="stylesheet">
-    <link rel="stylesheet" href="event_manage.css">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
 
 </head>
 
@@ -105,10 +105,6 @@
     <script src="js/sb-admin-2.min.js"></script>
 
 
-    <!-- 額外加的 -->
-    <script src="Home.js"></script>
-
-    <script src="Homescripts.js"></script>
 </body>
 
 </html>
