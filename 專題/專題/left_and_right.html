@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.1/css/bootstrap.min.css">
+  <title>Card Carousel</title>
+  <style>
+    .carousel-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 75%;
+      margin: 0 auto;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background-color: #ffffff;
+    }
+    .card-container {
+      display: flex;
+      overflow: hidden;
+      width: 100%;
+      gap: 10px;
+      justify-content: center;
+    }
+    .card {
+      flex: 0 0 24%;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+    }
+    .card-body {
+      padding: 15px;
+      text-align: center;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #007bff;
+    }
+    .card-text {
+      font-size: 1rem;
+      color: #333;
+    }
+    .btn-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #007bff;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    .btn-nav:hover {
+      background-color: #0056b3;
+    }
+    #prevBtn {
+      left: -40px;
+    }
+    #nextBtn {
+      right: -40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="carousel-container">
+      <button class="btn-nav" id="prevBtn">&#8249;</button>
+      <div class="card-container" id="cardContainer">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 1</h5>
+            <p class="card-text">This is card number 1.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 2</h5>
+            <p class="card-text">This is card number 2.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 3</h5>
+            <p class="card-text">This is card number 3.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 4</h5>
+            <p class="card-text">This is card number 4.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 5</h5>
+            <p class="card-text">This is card number 5.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 6</h5>
+            <p class="card-text">This is card number 6.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 7</h5>
+            <p class="card-text">This is card number 7.</p>
+          </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 8</h5>
+              <p class="card-text">This is card number 8.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 9</h5>
+              <p class="card-text">This is card number 9.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 10</h5>
+              <p class="card-text">This is card number 10.</p>
+            </div>
+          </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 11</h5>
+            <p class="card-text">This is card number 11.</p>
+          </div>
+        </div>
+      </div>
+      <button class="btn-nav" id="nextBtn">&#8250;</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cardContainer = document.getElementById('cardContainer');
+      const cards = Array.from(cardContainer.children);
+      let currentIndex = 0;
+
+      document.getElementById('nextBtn').addEventListener('click', function() {
+        currentIndex++;
+        if (currentIndex >= cards.length) {
+          currentIndex = 0;
+        }
+        updateCards();
+      });
+
+      document.getElementById('prevBtn').addEventListener('click', function() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = cards.length - 1;
+        }
+        updateCards();
+      });
+
+      function updateCards() {
+        cards.forEach((card) => {
+          card.style.display = 'none';
+        });
+
+        let count = 0;
+        let index = currentIndex;
+        while (count < 4) {
+          cards[index].style.display = 'block';
+          cards[index].style.order = count;
+          index = (index + 1) % cards.length;
+          count++;
+        }
+      }
+
+      // 初始化顯示
+      updateCards();
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 
 
     <div id="upcoming-expiry-container">
-        <p class="h3" style="font-weight:bold ;color:black">即將過期的物品TOP5</p>
+        <p class="h4" style="font-weight:bold ;color:black">即將過期的物品TOP5</p>
         <!-- 即將過期的物品展示區域（在日曆事件管理容器外面，整個容器上方） -->
         <div id="upcoming-expiry" class="upcoming-expiry">
             <!-- 這裡會動態插入即將過期的物品 -->
@@ -76,7 +76,7 @@
 <div class="fixed-bottom">
     <div class="position-fixed" style="right: 13px; bottom: 80px;">
         <button type="button" class="btn btn-success btn-lg rounded-circle shadow" id="floatingBtn" data-toggle="modal"
-                data-target=".bd-example-modal-lg">
+            data-target=".bd-example-modal-lg">
             <i class="fas fa-plus"></i>
         </button>
     </div>
@@ -84,7 +84,7 @@
 
 <!-- Modal -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-     aria-hidden="true">
+    aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-success text-white">
@@ -98,7 +98,7 @@
                     <div class="form-group">
                         <label for="food-name"><i class="fas fa-carrot mr-2"></i>食物名稱:</label>
                         <input type="text" class="form-control border-success" id="food-name" name="food-name"
-                               required>
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="category"><i class="fas fa-th-large mr-2"></i>類別:</label>
@@ -107,8 +107,8 @@
                             <div class="form-group">
                                 <div class="dropdown w-100">
                                     <button class="btn btn-outline-success dropdown-toggle w-100" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
                                         <img src="img/01.png" alt="蔬菜" class="dropdown-icon"> 蔬菜
                                     </button>
                                     <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
@@ -138,12 +138,12 @@
                     <div class="form-group">
                         <label for="storage-location"><i class="fas fa-map-marker-alt mr-2"></i>存放位置:</label>
                         <input type="text" class="form-control border-success" id="storage-location"
-                               name="storage-location" placeholder="例如: 冰箱、櫥櫃">
+                            name="storage-location" placeholder="例如: 冰箱、櫥櫃">
                     </div>
                     <div class="form-group">
                         <label for="purchase-date"><i class="fas fa-calendar-alt mr-2"></i>購買日期:</label>
                         <input type="date" class="form-control border-success" id="purchase-date"
-                               name="purchase-date">
+                            name="purchase-date">
                     </div>
                     <div class="form-group">
                         <label for="quantity"><i class="fas fa-sort-numeric-up mr-2"></i>數量:</label>
@@ -153,7 +153,7 @@
                                 </button>
                             </div>
                             <input type="number" class="form-control text-center border-success" id="quantity"
-                                   name="quantity" value="1" min="1">
+                                name="quantity" value="1" min="1">
                             <div class="input-group-append">
                                 <button type="button" class="btn btn-success text-white" id="increase-quantity">+
                                 </button>
