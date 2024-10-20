@@ -117,16 +117,21 @@
         $(document).ready(function() {
             // 監聽下拉選單的選項
             $('.dropdown-item').on('click', function() {
-                var selectedValue = $(this).data('value');
-                var selectedImg = $(this).data('img');
-
-                // 更新按鈕的圖標與文字
-                $('#dropdown-icon').attr('src', selectedImg);
-                $('#dropdown-text').text(selectedValue);
+                var food_category = $(this).data('name');
 
                 // 將選中的值放入隱藏的表單欄位中
-                $('#selectedValue').val(selectedValue);
-                $('#selectedImg').val(selectedImg);
+                $('#food_category').val(food_category);
+
+            });
+
+            // 當表單提交時，檢查是否已經選擇新值
+            $('#dropdownForm').on('submit', function(event) {
+                // 如果沒有選擇新值，就使用按鈕上顯示的預設值
+                var food_category = $('#dropdownMenuButton').val();
+
+                if (!food_category) {
+                    $('#food_category').val(food_category); // 更新隱藏欄位
+                }
             });
         });
     </script>
@@ -141,10 +146,9 @@
                 img.src = selectedImg;
 
                 img.onload = function() {
-                    var imgWidth = img.width; // 獲取圖片的寬度
 
                     // 如果圖片寬度大於 50px，設定 max-width: 50px
-                    var imgStyle = (imgWidth > 50) ? 'style="max-width: 50px;"' : '';
+                    var imgStyle = 'style="width: 50px;"';
 
                     // 更新按鈕內容
                     $('#dropdownMenuButton').html('<img src="' + selectedImg + '" alt="' + selectedValue + '" class="dropdown-icon" ' + imgStyle + '> ' + selectedValue);

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\FoodCategory;
+use Illuminate\Http\Request;
 
-class FoodService
+class FoodServiceController extends Controller
 {
     public function getFoodCategory()
     {

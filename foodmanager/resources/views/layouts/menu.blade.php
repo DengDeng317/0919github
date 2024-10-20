@@ -13,21 +13,16 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item @if($active == 'calendar'){{ 'active' }}@endif">
+    <li class="nav-item @if($active == 'home'){{ 'active' }}@endif">
         <a class="nav-link" href="{{ route('calendar') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>日曆顯示</span></a>
+            <span>首頁</span></a>
     </li>
+
     <li class="nav-item">
         <a class="nav-link " href="?main=event_manage">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>事件管理</span></a>
-    </li>
-
-    <li class="nav-item @if($active == 'food_stock_manager'){{ 'active' }}@endif">
-        <a class="nav-link " href="{{ route('food_stock_manager') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>新增</span></a>
     </li>
 
     <li class="nav-item">
@@ -55,23 +50,6 @@
     <div class="sidebar-heading">
         介面
     </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="false" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>食物管理</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">記錄管理分頁:</h6>
-                <a class="collapse-item" href=".html">當前記錄</a>
-                <a class="collapse-item" href=".html">廚餘桶記錄</a>
-                <a class="collapse-item" href=".html">吃完記錄</a>
-            </div>
-        </div>
-    </li>
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
