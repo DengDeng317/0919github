@@ -167,17 +167,17 @@
                         <label for="expiry-date"><i class="fas fa-calendar-check mr-2"></i>有效期限:</label>
                         <input type="date" class="form-control border-success" id="expiry-date" name="expiry-date">
                     </div>
-                    <form id="food-form">
 
-                        <div class="form-group">
-                            <label for="food-status"><i class="fas fa-info-circle mr-2"></i>食物狀態:</label>
-                            <select class="form-control border-success" id="food-status" name="food-status">
-                                <option value="未過期" selected>未過期</option>
-                                <option value="過期">過期</option>
-                                <option value="完成">完成</option>
-                            </select>
-                        </div>
-                    </form>
+
+                    <div class="form-group" id="food-form">
+                        <label for="food-status"><i class="fas fa-info-circle mr-2"></i>食物狀態:</label>
+                        <select class="form-control border-success" id="food-status" name="food-status">
+                            <option value="未過期" selected>未過期</option>
+                            <option value="過期">過期</option>
+                            <option value="完成">完成</option>
+                        </select>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer bg-light">
                 <button type="submit" form="food-form" class="btn btn-success btn-block">
