@@ -11,13 +11,15 @@
             <div id="upcoming-expiry" class="upcoming-expiry">
                 <!-- 這裡會動態插入即將過期的物品 -->
                 @foreach($lastFood as $item)
-                    <!-- 第1個物品 -->
-                    <a href="apple-details.html" class="upcoming-item">
+
+                    <button type="button" class="upcoming-item"
+                            data-toggle="modal"
+                            data-target=".bd-example-modal-lg2">
                         <p>{{ $item->name }}</p>
                         <img
                             src="@if($item->img_url){{ asset('img/'.$item->img_url) }}@else{{ asset('img/01.png') }}@endif">
                         <p>過期日期: {{ $item->expiration_date }}</p>
-                    </a>
+                    </button>
                 @endforeach
             </div>
         </div>
@@ -72,7 +74,10 @@
             @foreach($allFood as $item => $value)
             '{{ $item }}': [
                     @foreach($value as $value2)
-                {name: '{{ $value2->name }}', image: '@if($value2->img_url){{ asset('img/'.$value2->img_url) }}@else{{ asset('img/01.png') }}@endif'},
+                {
+                    name: '{{ $value2->name }}',
+                    image: '@if($value2->img_url){{ asset('img/'.$value2->img_url) }}@else{{ asset('img/01.png') }}@endif'
+                },
                 @endforeach
             ],
             @endforeach
@@ -132,6 +137,31 @@
             });
         });
 
+        function openModal(button) {
+            var id = $(button).data('id');  // 從按鈕取得資料ID
+
+            $.ajax({
+                url: '{{ route('getFoodDetails',' + id + ') }}',  // 用正確的路由替換
+                type: 'GET',
+                success: function (response) {
+                    // 假設 response 是 JSON 格式的回傳資料
+                    $('#food-name').val(response.food_name);  // 填充食物名稱
+                    $('#storage-location').val(response.storage_location);  // 填充存放位置
+                    $('#purchase-date').val(response.purchase_date);  // 填充購買日期
+                    $('#quantity').val(response.quantity);  // 填充數量
+                    $('#price').val(response.price);  // 填充價格
+                    $('#expiry-date').val(response.expiry_date);  // 填充有效期限
+                    $('#food-status').val(response.food_status);  // 填充食物狀態
+
+                    // 類別下拉選單更新邏輯
+                    var selectedCategory = response.category;
+                    $('#dropdownMenuButton').text(selectedCategory);  // 更新選中的類別
+                },
+                error: function (xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
+        }
 
     </script>
 @endpush

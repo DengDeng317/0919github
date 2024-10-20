@@ -39,4 +39,9 @@ class Food extends Model
     {
         return $this->hasMany(Recipe::class);
     }
+
+    public function foodCategory()
+    {
+        return $this->belongsTo(FoodCategory::class);
+    }
 }
