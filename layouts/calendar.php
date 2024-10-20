@@ -106,9 +106,7 @@
 
                             <div class="form-group">
                                 <div class="dropdown w-100">
-                                    <button class="btn btn-outline-success dropdown-toggle w-100" type="button"
-                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
+                                    <button class="btn btn-outline-success dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <img src="img/01.png" alt="蔬菜" class="dropdown-icon"> 蔬菜
                                     </button>
                                     <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
@@ -130,6 +128,7 @@
                                     </div>
                                 </div>
                             </div>
+
 
 
                         </div>
@@ -178,6 +177,3 @@
         </div>
     </div>
 </div>
-
-<script src="Addandeditscript.js"></script>
-<script src="calendar.js"></script>

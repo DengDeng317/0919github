@@ -27,7 +27,7 @@
                 <span>事件管理</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " href="?main=event_">
+            <a class="nav-link " href="?main=Tag">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>標籤管理</span></a>
         </li>

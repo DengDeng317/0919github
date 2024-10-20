@@ -103,7 +103,8 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+    <script src="calendar.js"></script>
+    <script src="Addandeditscript.js"></script>
 
 </body>
 
