@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="Addandeditscript.css"> <!-- 新增與編輯選單的CSS -->
 <link rel="stylesheet" href="event_manage.css"><!-- 事件管理的CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 

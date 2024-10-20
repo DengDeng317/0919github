@@ -1,140 +1,84 @@
-const events = {
-    '2024-09-28': [
-        { name: '蘋果', image: 'apple.jpg', expiry: '2024-09-28' },
-        { name: '牛奶', image: 'milk.jpg', expiry: '2024-09-28' }
-    ],
-    '2024-09-29': [
-        { name: '麵包', image: 'bread.jpg', expiry: '2024-09-29' }
-    ]
-};
-
-let currentYear, currentMonth, selectedDateElement = null;
-
-// 初始化頁面時顯示提示文字
-function initializePage() {
-    const eventListDiv = document.getElementById('event-list');
-    const placeholder = document.createElement('div');
-    placeholder.className = 'event-item empty';  // 設置和其他事件一致的容器
-    placeholder.innerHTML = '<p>請選擇上方日期檢視</p>';  // 提示語句
-    eventListDiv.appendChild(placeholder);
-}
-
-function createCalendar(year, month) {
-    currentYear = year;
-    currentMonth = month;
-
-    const calendar = document.getElementById('calendar');
-    calendar.innerHTML = ''; // 清空日曆
-
-    const firstDay = new Date(Date.UTC(year, month, 1)); // 使用UTC，避免時區問題
-    const lastDay = new Date(Date.UTC(year, month + 1, 0));
-    const startOfWeek = new Date(firstDay);
-    startOfWeek.setUTCDate(firstDay.getUTCDate() - firstDay.getUTCDay());
-    const endOfWeek = new Date(lastDay);
-    endOfWeek.setUTCDate(lastDay.getUTCDate() + (6 - lastDay.getUTCDay()));
-
-    for (let date = new Date(startOfWeek); date <= endOfWeek; date.setUTCDate(date.getUTCDate() + 1)) {
-        const day = document.createElement('div');
-        day.className = 'day';
-        day.innerText = date.getUTCDate();
-
-        const currentDate = date.toISOString().split('T')[0];
-
-        if (currentDate === new Date().toISOString().split('T')[0]) {
-            day.classList.add('today');
+document.addEventListener('DOMContentLoaded', function () {
+    // 增加數量的自定義「+」按鈕
+    document.getElementById('increase-quantity').addEventListener('click', function () {
+        let quantity = document.getElementById('quantity');
+        let currentValue = parseInt(quantity.value);
+        // 每次點擊增加 1
+        if (!isNaN(currentValue)) {
+            quantity.value = currentValue + 1;
+        } else {
+            quantity.value = 1;  // 如果數字無效，重置為 1
         }
+    });
 
-        if (events[currentDate]) {
-            day.classList.add('event');
-            if (isUpcoming(date)) {
-                day.classList.add('upcoming');
-            }
+    // 減少數量的自定義「-」按鈕
+    document.getElementById('decrease-quantity').addEventListener('click', function () {
+        let quantity = document.getElementById('quantity');
+        let currentValue = parseInt(quantity.value);
+        // 減少數量，確保不低於 1
+        if (!isNaN(currentValue) && currentValue > 1) {
+            quantity.value = currentValue - 1;
+        } else {
+            quantity.value = 1;
         }
+    });
 
-        if (date.getUTCMonth() !== month) {
-            day.classList.add('preview');
-        }
+    // 表單提交事件
+    document.getElementById('food-form').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-        day.addEventListener('click', () => {
-            selectDate(currentDate, day);
-        });
+        // 收集表單資料
+        let foodName = document.getElementById('food-name').value;
+        let category = document.getElementById('category').value;
+        let storageLocation = document.getElementById('storage-location').value;
+        let purchaseDate = document.getElementById('purchase-date').value;
+        let quantity = document.getElementById('quantity').value;  // 從 input 中取出數量
+        let price = document.getElementById('price').value;
+        let expiryDate = document.getElementById('expiry-date').value;
 
-        calendar.appendChild(day);
-    }
+        // 保存資料到本地存儲
+        let foodItem = {
+            foodName: foodName,
+            category: category,
+            storageLocation: storageLocation,
+            purchaseDate: purchaseDate,
+            quantity: quantity,
+            price: price,
+            expiryDate: expiryDate
+        };
 
-    document.getElementById('month-picker').value = `${year}-${String(month + 1).padStart(2, '0')}`;
-}
+        // 獲取現有的食物清單，或初始化為空陣列
+        let foodList = JSON.parse(localStorage.getItem('foodList')) || [];
+        foodList.push(foodItem);
+        localStorage.setItem('foodList', JSON.stringify(foodList));
 
-function isUpcoming(date) {
-    const today = new Date();
-    const diffTime = date - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays <= 3 && diffDays >= 0;
-}
+        // 顯示成功訊息
+        alert('食物項目已成功新增！');
+        // 清空表單
+        document.getElementById('food-form').reset();
 
-function selectDate(date, dayElement) {
-    // 移除上一次選取的日期樣式
-    if (selectedDateElement) {
-        selectedDateElement.classList.remove('selected');
-    }
-
-    // 設置新選取的日期樣式
-    selectedDateElement = dayElement;
-    dayElement.classList.add('selected');
-
-    // 顯示該日期的事件
-    showEvents(date);
-}
-
-function showEvents(date) {
-    const eventList = events[date] || [];
-    const eventListDiv = document.getElementById('event-list');
-
-    eventListDiv.innerHTML = ''; // 清空舊的內容
-
-    if (eventList.length === 0) {
-        const emptyItem = document.createElement('div');
-        emptyItem.className = 'event-item empty';  // 使用相同樣式的容器
-        emptyItem.innerHTML = `<p>尚無資料</p>`;
-        emptyItem.addEventListener('click', () => {
-            alert(`新增 ${date} 的食物`);
-        });
-        eventListDiv.appendChild(emptyItem);
-    } else {
-        eventList.forEach(event => {
-            const eventItem = document.createElement('div');
-            eventItem.className = 'event-item'; // 正常事件樣式
-            eventItem.innerHTML = `
-                <img src="${event.image}" alt="${event.name}">
-                <p>${event.name} - 過期日期: ${event.expiry}</p>
-            `;
-            eventItem.addEventListener('click', () => {
-                alert(`編輯食物: ${event.name}`);
-            });
-            eventListDiv.appendChild(eventItem);
-        });
-    }
-}
-
-// 初始化頁面
-initializePage();
-
-// 設置月份變化和日期選擇的邏輯
-document.getElementById('month-picker').addEventListener('input', (e) => {
-    const [year, month] = e.target.value.split('-').map(Number);
-    createCalendar(year, month - 1);
+        // 跳轉到新的頁面
+        window.location.href = 'Home.html';
+    });
 });
 
-document.getElementById('prev-month').addEventListener('click', () => {
-    const newDate = new Date(Date.UTC(currentYear, currentMonth - 1));
-    createCalendar(newDate.getUTCFullYear(), newDate.getUTCMonth());
-});
+$(document).ready(function(){
+    $('.dropdown-item').on('click', function() {
+        var selectedValue = $(this).data('value'); // 取得 data-value 值
+        var selectedImg = $(this).data('img'); // 取得 data-img 值
 
-document.getElementById('next-month').addEventListener('click', () => {
-    const newDate = new Date(Date.UTC(currentYear, currentMonth + 1));
-    createCalendar(newDate.getUTCFullYear(), newDate.getUTCMonth());
-});
+        // 建立一個臨時的 Image 物件來檢查圖片的實際大小
+        var img = new Image();
+        img.src = selectedImg;
 
-// 預設顯示當前月份的日曆
-const currentDate = new Date();
-createCalendar(currentDate.getUTCFullYear(), currentDate.getUTCMonth());
+        img.onload = function() {
+            var imgWidth = img.width; // 獲取圖片的寬度
+
+            // 如果圖片寬度大於 50px，設定 max-width: 50px
+            var imgStyle = (imgWidth > 50) ? 'style="max-width: 50px;"' : '';
+
+            // 更新按鈕內容
+            $('#dropdownMenuButton').html('<img src="' + selectedImg + '" alt="' + selectedValue + '" class="dropdown-icon" ' + imgStyle + '> ' + selectedValue);
+        };
+    });
+});
