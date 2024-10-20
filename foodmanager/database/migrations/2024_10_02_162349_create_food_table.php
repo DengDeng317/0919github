@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('quantity');
+            $table->integer('price');
+            $table->string('storage_location');
+            $table->date('purchase_date');
             $table->date('expiration_date');
             $table->string('status');
             $table->unsignedBigInteger('label_id')->nullable()->comment('標籤ID');

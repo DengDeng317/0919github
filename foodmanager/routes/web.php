@@ -21,6 +21,7 @@ use App\Http\Controllers\FoodStockManagerController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('Calendar', [CalendarController::class, 'index'])->name('calendar');
+Route::post('Calendar', [CalendarController::class, 'store']);
 
 Route::get('FoodStockManager', [FoodStockManagerController::class, 'index'])->name('food_stock_manager');
 Route::post('FoodStockManager', [FoodStockManagerController::class, 'store']);

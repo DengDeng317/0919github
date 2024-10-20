@@ -1,40 +1,47 @@
-const events = {
-    '2024-09-28': ['會議', '生日派對'],
-    '2024-09-30': ['提交報告'],
-};
 
-let currentYear, currentMonth, selectedDate = null;
+
+let currentYear, currentMonth, selectedDateElement = null;
+
+// 初始化頁面時顯示提示文字
+function initializePage() {
+    const eventListDiv = document.getElementById('event-list');
+    eventListDiv.innerHTML = '<div class="no-interaction"><p>請選擇上方日期檢視</p></div>';  // 顯示提示
+}
 
 function createCalendar(year, month) {
     currentYear = year;
     currentMonth = month;
+
     const calendar = document.getElementById('calendar');
     calendar.innerHTML = ''; // 清空日曆
 
-    const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
-    const startOfWeek = new Date(year, month, 1 - firstDay.getDay());
-    const endOfWeek = new Date(year, month + 1, 6 - lastDay.getDay());
+    const firstDay = new Date(Date.UTC(year, month, 1));
+    const lastDay = new Date(Date.UTC(year, month + 1, 0));
+    const startOfWeek = new Date(firstDay);
+    startOfWeek.setUTCDate(firstDay.getUTCDate() - firstDay.getUTCDay());
+    const endOfWeek = new Date(lastDay);
+    endOfWeek.setUTCDate(lastDay.getUTCDate() + (6 - lastDay.getUTCDay()));
 
-    // 填充日曆
-    for (let date = startOfWeek; date <= endOfWeek; date.setDate(date.getDate() + 1)) {
+    for (let date = new Date(startOfWeek); date <= endOfWeek; date.setUTCDate(date.getUTCDate() + 1)) {
         const day = document.createElement('div');
         day.className = 'day';
-        day.innerText = date.getDate();
+        day.innerText = date.getUTCDate();
 
         const currentDate = date.toISOString().split('T')[0];
 
-        if (currentDate === `${new Date().toISOString().split('T')[0]}`) {
+        if (currentDate === new Date().toISOString().split('T')[0]) {
             day.classList.add('today');
-        }
-
-        if (date.getMonth() !== month) {
-            day.classList.add('preview');
         }
 
         if (events[currentDate]) {
             day.classList.add('event');
-            day.style.borderColor = '#76c7c0';
+            if (isUpcoming(date)) {
+                day.classList.add('upcoming');
+            }
+        }
+
+        if (date.getUTCMonth() !== month) {
+            day.classList.add('preview');
         }
 
         day.addEventListener('click', () => {
@@ -47,65 +54,75 @@ function createCalendar(year, month) {
     document.getElementById('month-picker').value = `${year}-${String(month + 1).padStart(2, '0')}`;
 }
 
+// 檢查是否為即將過期的物品
+function isUpcoming(date) {
+    const today = new Date();
+    const diffTime = date - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays <= 7 && diffDays >= 0;  // 快過期的判定範圍：7天內
+}
+
 function selectDate(date, dayElement) {
-    // 移除之前選中的日期的樣式
-    if (selectedDate) {
-        const previousSelected = document.querySelector(`.day.selected`);
-        if (previousSelected) {
-            previousSelected.classList.remove('selected');
-        }
+    // 移除上一次選取的日期樣式
+    if (selectedDateElement) {
+        selectedDateElement.classList.remove('selected');
     }
 
-    selectedDate = date;
+    // 設置新選取的日期樣式
+    selectedDateElement = dayElement;
     dayElement.classList.add('selected');
 
-    // 更新事件顯示
+    // 顯示該日期的事件
     showEvents(date);
 }
 
 function showEvents(date) {
     const eventList = events[date] || [];
-    const eventsDiv = document.getElementById('events');
+    const eventListDiv = document.getElementById('event-list');
 
-    eventsDiv.innerHTML = `<h3>${date} 的事件</h3>`;
-    
+    eventListDiv.innerHTML = ''; // 清空舊的內容
+
     if (eventList.length === 0) {
-        eventsDiv.innerHTML += '<p>沒有事件</p>';
+        const emptyItem = document.createElement('div');
+        emptyItem.className = 'event-item empty';
+        emptyItem.innerHTML = `<p>尚無資料</p>`;
+        emptyItem.addEventListener('click', () => {
+            alert(`新增 ${date} 的食物`);
+        });
+        eventListDiv.appendChild(emptyItem);
     } else {
         eventList.forEach(event => {
-            eventsDiv.innerHTML += `<p>${event}</p>`;
+            const eventItem = document.createElement('div');
+            eventItem.className = 'event-item';
+            eventItem.innerHTML = `
+                <img src="${event.image}" alt="${event.name}">
+            `;
+            eventItem.addEventListener('click', () => {
+                alert(`編輯食物: ${event.name}`);
+            });
+            eventListDiv.appendChild(eventItem);
         });
     }
-
-    // 顯示“確定”按鈕
-    document.getElementById('confirm-button').style.display = 'block';
 }
+
+// 初始化頁面
+initializePage();
 
 document.getElementById('month-picker').addEventListener('input', (e) => {
     const [year, month] = e.target.value.split('-').map(Number);
-    createCalendar(year, month - 1); // month從0開始
+    createCalendar(year, month - 1);
 });
 
-// 切換到上個月
 document.getElementById('prev-month').addEventListener('click', () => {
-    const newDate = new Date(currentYear, currentMonth - 1);
-    createCalendar(newDate.getFullYear(), newDate.getMonth());
+    const newDate = new Date(Date.UTC(currentYear, currentMonth - 1));
+    createCalendar(newDate.getUTCFullYear(), newDate.getUTCMonth());
 });
 
-// 切換到下個月
 document.getElementById('next-month').addEventListener('click', () => {
-    const newDate = new Date(currentYear, currentMonth + 1);
-    createCalendar(newDate.getFullYear(), newDate.getMonth());
-});
-
-// 確定按鈕事件
-document.getElementById('confirm-button').addEventListener('click', () => {
-    if (selectedDate) {
-        alert(`已選擇日期: ${selectedDate}`);
-        // 可以在這裡添加其他處理邏輯
-    }
+    const newDate = new Date(Date.UTC(currentYear, currentMonth + 1));
+    createCalendar(newDate.getUTCFullYear(), newDate.getUTCMonth());
 });
 
 // 預設顯示當前月份的日曆
 const currentDate = new Date();
-createCalendar(currentDate.getFullYear(), currentDate.getMonth());
+createCalendar(currentDate.getUTCFullYear(), currentDate.getUTCMonth());

@@ -1,43 +1,100 @@
+/* 基本頁面設置 */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: #eef1f5;
+    margin: 0;
+}
 
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
 
+/* 將 h1 標題置中 */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* 即將過期的物品展示區域樣式 */
+.upcoming-expiry-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.upcoming-expiry {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 每行顯示4個 */
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* 月份導航 */
 .month-navigation {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 20px 0;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
-button {
-    background-color: #76c7c0;
+.month-navigation button {
+    background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px;
-    border-radius: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
-    background-color: #66b4a5;
+.month-navigation button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
 }
 
+/* 調整年月選擇輸入框樣式 */
 input[type="month"] {
-    width: 100%;
-    padding: 10px;
-    margin: 0 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    width: 200px;
+    height: 50px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: border-color 0.3s, height 0.2s ease;
 }
 
+input[type="month"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* 星期排版 */
 .weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #555;
+    color: #7c7c7c;
 }
 
+/* 日曆日期格子 */
 #calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -45,60 +102,171 @@ input[type="month"] {
 }
 
 .day {
-    padding: 20px;
-    border: 1px solid #ddd;
+    padding: 15px;
+    border: 3px solid #ddd;
     text-align: center;
     border-radius: 6px;
     background-color: #f9f9f9;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s, opacity 0.3s;
 }
 
+/* 當天日期 */
 .today {
-    color: #76c7c0;
-    /* 當前日期文字顯示為黃色 */
+    color: #268545;
+    font-weight: bold;
 }
 
+/* 有事件的日期，格子外框顏色 */
 .event {
-    border: 2px solid #76c7c0;
-    /* 更粗的邊框 */
+    background-color: #56aa79;
+    border-color: #109447;
+    color: #ffffff;
 }
 
-.day:hover {
-    background-color: #e0e0e0;
+/* 即將過期的日期，格子與文字顏色 */
+.upcoming {
+    background-color: #ffd700;
+    border-color: #ffa500;
+    color: #ff4500;
 }
 
-.selected {
-    background-color: #cce8ff;
-    border-color: #007bff;
-}
-
+/* 半透明預覽效果 */
 .preview {
-    background-color: rgba(128, 128, 128, 0.2);
-    color: #bbb;
+    background-color: rgba(192, 189, 189, 0.2);
+    color: #727272;
 }
 
+/* 食物列表 */
 #events {
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 6px;
     background-color: #fafafa;
+    min-height: 100px; /* 保證列表區域有最小高度 */
 }
 
-#confirm-button {
-    display: block;
-    margin-top: 10px;
-    width: 100%;
+#events p {
+    text-align: center;
+    color: #888;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* 事件容器樣式 */
+.event-item, .event-item.empty,.no-interaction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
     padding: 10px;
-    background-color: #76c7c0;
-    color: white;
-    border: none;
+    border: 1px solid #ddd;
     border-radius: 6px;
+    background-color: #fff;
+    min-height: 60px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
-#confirm-button:hover {
-    background-color: #66b4a5;
+.event-item.empty,.no-interaction {
+    background-color: #f0f0f0;
+    color: #888;
+}
+
+.event-item:hover {
+    background-color: #e0e0e0;
+}
+
+.event-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* 選取的日期格子樣式 */
+.selected {
+    background-color: #007bff;
+    color: white;
+    border: 3px solid #0056b3;
+}
+
+
+/* 每個即將過期的物品容器樣式 */
+.upcoming-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.upcoming-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;/* 圓形圖片 */
+    object-fit: cover;
+    margin: 5px 0;
+}
+
+.upcoming-item p {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+.upcoming-item:hover {
+    transform: scale(1.05); /* 當鼠標懸停時放大 */
+}
+
+/* 即將過期物品展示容器 */
+#upcoming-expiry-container {
+    max-width: 620px;  /* 將整體容器左右縮小 */
+    margin: 0 auto 3px auto; /* 保持在頁面中央 */
+    padding: 5px;
+    border: 5px solid #ddd;
+    border-radius: 6px;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+
+/* 即將過期的物品展示區域 */
+#upcoming-expiry {
+    display: flex;
+    justify-content: center; /* 將內容置中 */
+    gap: 5px; /* 增加物品之間的距離 */
+    margin-bottom: 10px;
+}
+
+/* 單個即將過期物品的樣式 */
+.upcoming-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 140px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: black; /* 確保文本顏色 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer; /* 確保光標變為指針，表示可點擊 */
+    text-decoration: none; /* 移除超連結的下劃線 */
+}
+
+/* 為了確保點擊正確生效，移除可能阻擋點擊效果的設置 */
+.upcoming-item:active {
+    background-color: #e0e0e0;
+    outline: none;
+    border: none;
 }
