@@ -10,40 +10,15 @@
             <!-- 即將過期的物品展示區域（在日曆事件管理容器外面，整個容器上方） -->
             <div id="upcoming-expiry" class="upcoming-expiry">
                 <!-- 這裡會動態插入即將過期的物品 -->
-                <!-- 第1個物品 -->
-                <a href="apple-details.html" class="upcoming-item">
-                    <p>蘋果</p>
-                    <img src="{{ asset('img/food_fruit_sandwich_ichigo.png') }}">
-                    <p>過期日期: 2024-09-28</p>
-                </a>
-
-                <!-- 第2個物品 -->
-                <a href="milk-details.html" class="upcoming-item">
-                    <p>蘋果</p>
-                    <img src="image.png" alt="蘋果">
-                    <p>過期日期: 2024-09-28</p>
-                </a>
-
-                <!-- 第3個物品 -->
-                <a href="bread-details.html" class="upcoming-item">
-                    <p>蘋果</p>
-                    <img src="apple.jpg" alt="蘋果">
-                    <p>過期日期: 2024-09-28</p>
-                </a>
-
-                <!-- 第4個物品 -->
-                <a href="egg-details.html" class="upcoming-item">
-                    <p>蘋果</p>
-                    <img src="apple.jpg" alt="蘋果">
-                    <p>過期日期: 2024-09-28</p>
-                </a>
-
-                <!-- 第5個物品 -->
-                <a href="egg-details.html" class="upcoming-item">
-                    <p>蘋果</p>
-                    <img src="apple.jpg" alt="蘋果">
-                    <p>過期日期: 2024-09-28</p>
-                </a>
+                @foreach($lastFood as $item)
+                    <!-- 第1個物品 -->
+                    <a href="apple-details.html" class="upcoming-item">
+                        <p>{{ $item->name }}</p>
+                        <img
+                            src="@if($item->img_url){{ asset('img/'.$item->img_url) }}@else{{ asset('img/01.png') }}@endif">
+                        <p>過期日期: {{ $item->expiration_date }}</p>
+                    </a>
+                @endforeach
             </div>
         </div>
     </div>
@@ -94,29 +69,21 @@
 @push('js')
     <script>
         const events = {
-            '2024-09-18': [
-                {name: '蘋果', image: '{{ asset('img/food_fruit_sandwich_ichigo.png') }}', expiry: '2024-09-28'},
-                {name: '牛奶', image: 'milk.jpg', expiry: '2024-09-28'}
+            @foreach($allFood as $item => $value)
+            '{{ $item }}': [
+                    @foreach($value as $value2)
+                {name: '{{ $value2->name }}', image: '@if($value2->img_url){{ asset('img/'.$value2->img_url) }}@else{{ asset('img/01.png') }}@endif'},
+                @endforeach
             ],
-            '2024-09-29': [
-                {name: '麵包', image: 'bread.jpg', expiry: '2024-09-29'}
-            ],
-            '2024-10-19': [
-                {name: '蘋果', image: 'apple.jpg', expiry: '2024-09-28'},
-                {name: '牛奶', image: 'milk.jpg', expiry: '2024-09-28'}
-            ],
-            '2024-10-28': [
-                {name: '蘋果', image: 'apple.jpg', expiry: '2024-10-28'},
-                {name: '牛奶', image: 'milk.jpg', expiry: '2024-10-28'}
-            ]
+            @endforeach
         };
     </script>
     <script src="{{ asset('js/calendar.js') }}"></script>
     <script src="{{ asset('js/addandedit.js') }}"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // 監聽下拉選單的選項
-            $('.dropdown-item').on('click', function() {
+            $('.dropdown-item').on('click', function () {
                 var food_category = $(this).data('name');
 
                 // 將選中的值放入隱藏的表單欄位中
@@ -125,7 +92,7 @@
             });
 
             // 當表單提交時，檢查是否已經選擇新值
-            $('#dropdownForm').on('submit', function(event) {
+            $('#dropdownForm').on('submit', function (event) {
                 // 如果沒有選擇新值，就使用按鈕上顯示的預設值
                 var food_category = $('#dropdownMenuButton').val();
 
@@ -134,10 +101,19 @@
                 }
             });
         });
+        $(document).ready(function () {
+            $('.dropdown-item').on('click', function () {
+                var selectedValue = $(this).data('value'); // 取得 data-value 值
+                var selectedImg = $(this).data('img'); // 取得 data-img 值
+                // 更新按鈕內容
+                $('#dropdownMenuButton').html('<img src="' + selectedImg + '" alt="' + selectedValue + '" class="dropdown-icon"> ' + selectedValue);
+            });
+        });
+
     </script>
     <script>
-        $(document).ready(function(){
-            $('.dropdown-item').on('click', function() {
+        $(document).ready(function () {
+            $('.dropdown-item').on('click', function () {
                 var selectedValue = $(this).data('value'); // 取得 data-value 值
                 var selectedImg = $(this).data('img'); // 取得 data-img 值
 
@@ -145,7 +121,7 @@
                 var img = new Image();
                 img.src = selectedImg;
 
-                img.onload = function() {
+                img.onload = function () {
 
                     // 如果圖片寬度大於 50px，設定 max-width: 50px
                     var imgStyle = 'style="width: 50px;"';

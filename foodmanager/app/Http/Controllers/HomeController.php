@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,11 +18,26 @@ class HomeController extends Controller
 
     public function index()
     {
-
+        $user_id = Auth::id();
         $getFoodCategory = $this->foodService->getFoodCategory();
+
+        $today = Carbon::today(); // 或者使用 Carbon::now() 取得現在的時間
+        $lastFood = Food::where('user_id', $user_id)
+            ->where('expiration_date', '>=', $today)
+            ->orderBy('expiration_date', 'asc')
+            ->limit(5)
+            ->get();
+        $allFood = Food::where('user_id', $user_id)
+            ->orderBy('expiration_date', 'asc')
+            ->get()
+            ->groupBy(function ($date) {
+                return \Carbon\Carbon::parse($date->expiration_date)->format('Y-m-d');
+            });
 
         $data = $this->data();
         $data['getFoodCategory'] = $getFoodCategory;
+        $data['lastFood'] = $lastFood;
+        $data['allFood'] = $allFood;
 
         return view('calendar.index', $data);
     }
@@ -35,6 +51,7 @@ class HomeController extends Controller
         $quantity = $request->quantity;
         $price = $request->price;
         $expiry_date = $request->expiry_date;
+        $food_status = $request->food_status;
 
         $food = new Food();
         $food->name = $food_name;
@@ -43,7 +60,7 @@ class HomeController extends Controller
         $food->storage_location = $storage_location;
         $food->purchase_date = $purchase_date;
         $food->expiration_date = $expiry_date;
-        $food->status = 1;
+        $food->status = $food_status;
         $food->label_id = $foodCategory;
         $food->user_id = Auth::id();
         $food->save();

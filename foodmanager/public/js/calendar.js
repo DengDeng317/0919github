@@ -86,9 +86,6 @@ function showEvents(date) {
         const emptyItem = document.createElement('div');
         emptyItem.className = 'event-item empty';
         emptyItem.innerHTML = `<p>尚無資料</p>`;
-        emptyItem.addEventListener('click', () => {
-            alert(`新增 ${date} 的食物`);
-        });
         eventListDiv.appendChild(emptyItem);
     } else {
         eventList.forEach(event => {
@@ -96,6 +93,7 @@ function showEvents(date) {
             eventItem.className = 'event-item';
             eventItem.innerHTML = `
                 <img src="${event.image}" alt="${event.name}">
+                <p>${event.name}</p>
             `;
             eventItem.addEventListener('click', () => {
                 alert(`編輯食物: ${event.name}`);

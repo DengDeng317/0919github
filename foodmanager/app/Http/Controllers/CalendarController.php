@@ -34,6 +34,7 @@ class CalendarController extends Controller
         $quantity = $request->quantity;
         $price = $request->price;
         $expiry_date = $request->expiry_date;
+        $food_status = $request->food_status;
 
         $food = new Food();
         $food->name = $food_name;
@@ -42,7 +43,7 @@ class CalendarController extends Controller
         $food->storage_location = $storage_location;
         $food->purchase_date = $purchase_date;
         $food->expiration_date = $expiry_date;
-        $food->status = 1;
+        $food->status = $food_status;
         $food->label_id = $foodCategory;
         $food->user_id = Auth::id();
         $food->save();

@@ -87,6 +87,15 @@
                         <input type="date" class="form-control border-success" id="expiry-date" name="expiry_date"
                                value="{{ date('Y-m-d', strtotime('+3 days')) }}" required>
                     </div>
+
+                    <div class="form-group">
+                        <label for="food-status"><i class="fas fa-info-circle mr-2"></i>食物狀態:</label>
+                        <select class="form-control border-success" id="food-status" name="food_status">
+                            <option value="未過期" selected>未過期</option>
+                            <option value="過期">過期</option>
+                            <option value="完成">完成</option>
+                        </select>
+                    </div>
                 </form>
             </div>
             <div class="modal-footer bg-light">
