@@ -42,7 +42,7 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content 主頁內容 -->
-                <?php $main = (isset($_GET['main'])) ? $_GET['main'] : 'home'; ?>
+                <?php $main = (isset($_GET['main'])) ? $_GET['main'] : 'calendar'; ?>
                 <?php include($main . ".php"); ?>
 
                 <!-- Page Heading 內容傳送門 -->

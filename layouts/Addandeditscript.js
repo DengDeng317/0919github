@@ -82,3 +82,12 @@ $(document).ready(function(){
         };
     });
 });
+
+document.getElementById('food-form').addEventListener('submit', function (e) {
+    e.preventDefault(); // 防止表單實際提交
+
+    const foodStatus = document.getElementById('food-status').value; // 取得選擇的食物狀態
+
+    // 你可以在這裡進行進一步的處理，例如保存數據或進行 AJAX 提交
+    console.log("食物狀態: ", foodStatus);
+});

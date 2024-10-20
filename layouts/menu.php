@@ -19,7 +19,7 @@
         <li class="nav-item">
             <a class="nav-link " href="?main=calendar">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>日曆顯示</span></a>
+                <span>首頁</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link " href="?main=event_manage">
