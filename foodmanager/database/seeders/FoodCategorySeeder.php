@@ -14,15 +14,17 @@ class FoodCategorySeeder extends Seeder
     public function run(): void
     {
         $array = [
-            '蔬菜',
-            '水果',
-            '餅乾',
-            '飲料',
-            '肉類',
+            ['name' => '蔬菜', 'img_url' => '01.png'],
+            ['name' => '水果', 'img_url' => '02.png'],
+            ['name' => '餅乾', 'img_url' => '03.png'],
+            ['name' => '飲料', 'img_url' => '04.png'],
+            ['name' => '肉類', 'img_url' => '05.png'],
         ];
         foreach ($array as $item) {
             $category = new FoodCategory();
-            $category->name = $item;
+            $category->name = $item['name'];
+            $category->img_url = $item['img_url'];
+            $category->user_id = 1;
             $category->save();
         }
 

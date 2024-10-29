@@ -21,6 +21,7 @@ return new class extends Migration
             $table->date('expiration_date');
             $table->string('status');
             $table->unsignedBigInteger('label_id')->nullable()->comment('標籤ID');
+            $table->unsignedBigInteger('food_category_id')->nullable()->comment('類別ID');
             $table->unsignedBigInteger('user_id')->nullable()->comment('用戶ID');
             $table->timestamps();
         });

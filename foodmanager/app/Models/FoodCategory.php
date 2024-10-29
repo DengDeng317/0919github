@@ -20,4 +20,9 @@ class FoodCategory extends Model
         return $this->hasMany(Food::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

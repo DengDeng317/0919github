@@ -35,6 +35,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('getFoodDetails/{id}', [AjaxController::class, 'getFoodDetails'])->name('getFoodDetails');
 
     Route::post('Calendar', [CalendarController::class, 'store'])->name('calendar');
+    Route::post('CalendarUpdate', [CalendarController::class, 'update'])->name('calendar.update');
 
     Route::get('FoodStockManager', [FoodStockManagerController::class, 'index'])->name('food_stock_manager');
     Route::post('FoodStockManager', [FoodStockManagerController::class, 'store']);

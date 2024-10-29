@@ -14,7 +14,10 @@
 
                     <button type="button" class="upcoming-item"
                             data-toggle="modal"
-                            data-target=".bd-example-modal-lg2">
+                            data-target=".bd-example-modal-lg2"
+                            data-id="{{ $item->id }}"
+                            onclick="openModal({{ $item->id }})"
+                    >
                         <p>{{ $item->name }}</p>
                         <img
                             src="@if($item->img_url){{ asset('img/'.$item->img_url) }}@else{{ asset('img/01.png') }}@endif">
@@ -75,6 +78,7 @@
             '{{ $item }}': [
                     @foreach($value as $value2)
                 {
+                    id: '{{ $value2->id }}',
                     name: '{{ $value2->name }}',
                     image: '@if($value2->img_url){{ asset('img/'.$value2->img_url) }}@else{{ asset('img/01.png') }}@endif'
                 },
@@ -96,22 +100,12 @@
 
             });
 
-            // 當表單提交時，檢查是否已經選擇新值
-            $('#dropdownForm').on('submit', function (event) {
-                // 如果沒有選擇新值，就使用按鈕上顯示的預設值
-                var food_category = $('#dropdownMenuButton').val();
+            $('.dropdown_item_r').on('click', function () {
+                var food_category = $(this).data('name');
 
-                if (!food_category) {
-                    $('#food_category').val(food_category); // 更新隱藏欄位
-                }
-            });
-        });
-        $(document).ready(function () {
-            $('.dropdown-item').on('click', function () {
-                var selectedValue = $(this).data('value'); // 取得 data-value 值
-                var selectedImg = $(this).data('img'); // 取得 data-img 值
-                // 更新按鈕內容
-                $('#dropdownMenuButton').html('<img src="' + selectedImg + '" alt="' + selectedValue + '" class="dropdown-icon"> ' + selectedValue);
+                // 將選中的值放入隱藏的表單欄位中
+                $('#food_category_r').val(food_category);
+
             });
         });
 
@@ -135,33 +129,54 @@
                     $('#dropdownMenuButton').html('<img src="' + selectedImg + '" alt="' + selectedValue + '" class="dropdown-icon" ' + imgStyle + '> ' + selectedValue);
                 };
             });
+
+            $('.category_item_r').on('click', function () {
+                var selectedValue = $(this).data('value'); // 取得 data-value 值
+                var selectedImg = $(this).data('img'); // 取得 data-img 值
+
+                // 更新按鈕內容，並將圖片設為固定寬度
+                $('#selected_category_r').html(`
+                    <img src="${selectedImg}" alt="${selectedValue}" style="width: 50px;" class="dropdown-icon">
+                    ${selectedValue}
+                `);
+            });
+
         });
 
-        function openModal(button) {
-            var id = $(button).data('id');  // 從按鈕取得資料ID
+        function openModal(id) {
 
             $.ajax({
-                url: '{{ route('getFoodDetails',' + id + ') }}',  // 用正確的路由替換
+                url: '{{ route("getFoodDetails", ":id") }}'.replace(':id', id),
                 type: 'GET',
                 success: function (response) {
                     // 假設 response 是 JSON 格式的回傳資料
-                    $('#food-name').val(response.food_name);  // 填充食物名稱
-                    $('#storage-location').val(response.storage_location);  // 填充存放位置
-                    $('#purchase-date').val(response.purchase_date);  // 填充購買日期
-                    $('#quantity').val(response.quantity);  // 填充數量
-                    $('#price').val(response.price);  // 填充價格
-                    $('#expiry-date').val(response.expiry_date);  // 填充有效期限
-                    $('#food-status').val(response.food_status);  // 填充食物狀態
+                    $('#food_id_r').val(response.id);  // 填充食物名稱
+                    $('#food_name_r').val(response.food_name);  // 填充食物名稱
+                    $('#food_category_r').val(response.food_category_r);  // 填充食物名稱
+                    $('#storage_location_r').val(response.storage_location);  // 填充存放位置
+                    $('#purchase_date_r').val(response.purchase_date);  // 填充購買日期
+                    $('#quantity_r').val(response.quantity);  // 填充數量
+                    $('#price_r').val(response.price);  // 填充價格
+                    $('#expiry_date_r').val(response.expiration_date);  // 填充有效期限
+                    $('#food_status_r').val(response.status);  // 填充食物狀態
 
                     // 類別下拉選單更新邏輯
-                    var selectedCategory = response.category;
-                    $('#dropdownMenuButton').text(selectedCategory);  // 更新選中的類別
+
+                    const categoryElement = document.getElementById('dropdownMenuButton_r');
+                    categoryElement.innerHTML = `
+                        <span id="selected_category_r">
+                            <img
+                                src="${response.category_img_url}"
+                                style="width: 50px;" alt="${response.category}"
+                                class="dropdown-icon">
+                            ${response.category}
+                        </span>
+                    `;
                 },
                 error: function (xhr) {
                     console.log('Error:', xhr);
                 }
             });
         }
-
     </script>
 @endpush

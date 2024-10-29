@@ -75,7 +75,6 @@ function selectDate(date, dayElement) {
     // 顯示該日期的事件
     showEvents(date);
 }
-
 function showEvents(date) {
     const eventList = events[date] || [];
     const eventListDiv = document.getElementById('event-list');
@@ -95,13 +94,19 @@ function showEvents(date) {
                 <img src="${event.image}" alt="${event.name}">
                 <p>${event.name}</p>
             `;
-            eventItem.addEventListener('click', () => {
-                alert(`編輯食物: ${event.name}`);
-            });
+
+            // 設置 modal 屬性和事件
+            eventItem.setAttribute('data-toggle', 'modal');
+            eventItem.setAttribute('data-target', '.bd-example-modal-lg2');
+            eventItem.setAttribute('data-id', event.id);
+            eventItem.addEventListener('click', () => openModal(event.id));
+
             eventListDiv.appendChild(eventItem);
         });
     }
 }
+
+
 
 // 初始化頁面
 initializePage();

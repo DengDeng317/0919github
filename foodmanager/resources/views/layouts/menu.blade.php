@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item @if($active == 'home'){{ 'active' }}@endif">
-        <a class="nav-link" href="{{ route('calendar') }}">
+        <a class="nav-link" href="{{ route('home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>首頁</span></a>
     </li>
