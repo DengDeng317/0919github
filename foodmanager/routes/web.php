@@ -8,7 +8,7 @@ use App\Http\Controllers\FoodStockManagerController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\ManagerTagController;
-
+use App\Http\Controllers\SendMailController;
 
 
 /*
@@ -22,7 +22,7 @@ use App\Http\Controllers\ManagerTagController;
 |
 */
 
-
+Route::get('SendMail', [SendMailController::class, 'send']);
 Route::get('Login', [AuthController::class, 'login'])->name('login');
 Route::post('Login', [AuthController::class, 'loginStore']);
 
