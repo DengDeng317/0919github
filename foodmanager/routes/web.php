@@ -29,6 +29,7 @@ Route::post('Login', [AuthController::class, 'loginStore']);
 Route::get('Register', [AuthController::class ,'register'])->name('register');
 Route::post('Register', [AuthController::class, 'registerStore']);
 
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', [HomeController::class, 'index'])->name('home');

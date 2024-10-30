@@ -3,7 +3,7 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>食物即將過期提醒</title>
+    <title>食與惜 - 即將過期的食物提醒</title>
 </head>
 <body>
 <h1>即將過期的食物提醒</h1>

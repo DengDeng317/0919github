@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManagerTagController;
+use App\Http\Controllers\AjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('Tag/Delete/{id}', [ManagerTagController::class, 'tag_delete'])->name('tag.delete');
+
+Route::post('ForgetPassword', [AjaxController::class, 'getForgetPassword'])->name('forget.password');

@@ -6,6 +6,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class SendMailController extends Controller
 {
@@ -39,11 +40,32 @@ class SendMailController extends Controller
 
                 Mail::send('send_mail.food', ['foods' => $data], function ($message) use ($item) {
                     $message->to($item->email)
-                        ->subject('即將過期的食物');
+                        ->subject('食與惜 - 即將過期的食物');
                 });
-                
+
             }
         }
 
+    }
+
+    public function forgerPassword($email)
+    {
+        $user = User::where('email', $email)->first();
+        if ($user)
+        {
+            $newPassword = Str::random(16);
+
+            $user->password = bcrypt($newPassword);
+            $user->save(); // 保存更改
+
+            Mail::send('send_mail.forget_password', ['password' => $newPassword], function ($message) use ($email) {
+                $message->to($email)
+                    ->subject('食與惜 - 密碼重置');
+            });
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }

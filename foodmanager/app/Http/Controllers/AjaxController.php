@@ -29,4 +29,17 @@ class AjaxController extends Controller
             return response()->json(['error' => 'Data not found'], 404);
         }
     }
+
+    public function getForgetPassword(Request $request)
+    {
+        $email = $request->email;
+        $sendMail = new SendMailController();
+        $send = $sendMail->forgerPassword($email);
+        if ($send)
+        {
+            return ['message' => '密碼已發送至信箱'];
+        } else {
+            return  ['message' => '找不到信箱'];
+        }
+    }
 }
