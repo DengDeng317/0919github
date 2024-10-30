@@ -27,17 +27,17 @@ class ManagerTagController extends Controller
 
     public function add_store(Request $request)
     {
-        // 驗證請求
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 可選的圖片驗證
-        ]);
+        //return $request;
+        //驗證請求
+        // $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg', // 可選的圖片驗證
+        // ]);
 
         $id = $request->id;
         $name = $request->name;
         $getFoodCategory = FoodCategory::where('user_id', $id)->where('name', $name)->first();
-        if ($getFoodCategory)
-        {
+        if ($getFoodCategory) {
             return back()->with(['message' => '名稱已存在']);
         } else {
             // 建立新標籤
@@ -57,24 +57,22 @@ class ManagerTagController extends Controller
             $tag->save();
             return back()->with(['message' => '新增成功']);
         }
-
     }
 
     public function update_store(Request $request)
     {
-//        return $request;
+        //        return $request;
         // 驗證請求
-        $request->validate([
-            'id' => 'required|max:255',
-            'name' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 可選的圖片驗證
-        ]);
+        // $request->validate([
+        //     'id' => 'required|max:255',
+        //     'name' => 'required|string|max:255',
+        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // 可選的圖片驗證
+        // ]);
 
         $id = $request->id;
         $name = $request->name;
         $getFoodCategory = FoodCategory::where('id', $id)->first();
-        if ($getFoodCategory)
-        {
+        if ($getFoodCategory) {
             $getFoodCategory->name = $name;
 
             // 處理圖片上傳
