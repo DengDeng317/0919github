@@ -21,6 +21,9 @@
     <form id="registerForm" action="{{ route('register') }}" method="post">
         @csrf
 
+        @if(session()->get('fail'))
+            <p style="color: red;font-size: larger;">{{ session()->get('fail') }}</p>
+        @endif
         <label for="username">名稱</label>
         <input type="text" id="username" name="username" placeholder="請輸入名稱" required>
 

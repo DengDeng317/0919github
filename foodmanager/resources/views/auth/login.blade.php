@@ -23,6 +23,9 @@
     <form id="loginForm" action="{{ route('login') }}" method="post">
         @csrf
 
+        @if(session()->get('fail'))
+            <p class="text-danger h3">{{ session()->get('fail') }}</p>
+        @endif
         <!-- Email 輸入 -->
         <label for="email">電子郵件</label>
         <input type="email" id="email" name="email" placeholder="請輸入電子郵件" required>

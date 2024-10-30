@@ -34,6 +34,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('Logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::get('PasswordReset', [AuthController::class, 'password_reset'])->name('password.reset');
+    Route::post('PasswordReset', [AuthController::class, 'password_reset_store'])->name('password.reset.store');
+
     Route::get('getFoodDetails/{id}', [AjaxController::class, 'getFoodDetails'])->name('getFoodDetails');
 
     Route::post('Calendar', [CalendarController::class, 'store'])->name('calendar');

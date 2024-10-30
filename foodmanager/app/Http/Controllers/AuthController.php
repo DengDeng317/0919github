@@ -74,4 +74,38 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
+
+    public function password_reset()
+    {
+
+        $data = [
+            'active' => 'calendar',
+        ];
+
+        return view('auth.password_reset', $data);
+    }
+
+    public function password_reset_store(Request $request)
+    {
+        $userId = Auth::id();
+        $getUser = User::where('id', $userId)->first();
+        if ($getUser)
+        {
+            if (!Hash::check($request->currentPassword, $getUser->password)) {
+                return ['status' => false, 'message' => '舊密碼錯誤'];
+            } else {
+                $newPassword = bcrypt($request->newPassword);
+
+                if ($request->newPassword !== $request->confirmPassword)
+                {
+                    return ['status' => false, 'message' => '新密碼驗證錯誤'];
+                } else {
+                    User::where('id', $userId)->update(['password' => $newPassword]);
+                    return ['status' => true, 'message' => '修改成功'];
+                }
+            }
+        } else {
+            return ['status' => false, 'message' => '抓不到資料'];
+        }
+    }
 }
