@@ -26,7 +26,7 @@ Route::get('SendMail', [SendMailController::class, 'send']);
 Route::get('Login', [AuthController::class, 'login'])->name('login');
 Route::post('Login', [AuthController::class, 'loginStore']);
 
-Route::get('Register', [AuthController::class ,'register'])->name('register');
+Route::get('Register', [AuthController::class, 'register'])->name('register');
 Route::post('Register', [AuthController::class, 'registerStore']);
 
 
@@ -48,6 +48,4 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('addTag', [ManagerTagController::class, 'add_store'])->name('tag.add');
     Route::post('updateTag', [ManagerTagController::class, 'update_store'])->name('tag.update');
-
-
 });
