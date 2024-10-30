@@ -33,7 +33,7 @@
                                             aria-haspopup="true"
                                             aria-expanded="false">
                                         <img
-                                            src="@if($getFoodCategory->first()->img_url){{ asset('img/'.$getFoodCategory->first()->img_url) }}@else{{ asset('img/01.png') }}@endif"
+                                            src="@if($getFoodCategory->first()->img_url){{ asset($getFoodCategory->first()->img_url) }}@else{{ asset('img/01.png') }}@endif"
                                             style="width: 50px;" alt="{{ $getFoodCategory->first()->name }}"
                                             class="dropdown-icon"> {{ $getFoodCategory->first()->name }}
                                     </button>
@@ -43,9 +43,9 @@
                                             <div class="dropdown-item"
                                                  data-value="{{ $item->name }}"
                                                  data-name="{{ $item->id }}"
-                                                 data-img="@if($item->img_url){{ asset('img/'.$item->img_url) }}@else{{ asset('img/01.png') }}@endif">
+                                                 data-img="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif">
                                                 <img
-                                                    src="@if($item->img_url){{ asset('img/'.$item->img_url) }}@else{{ asset('img/01.png') }}@endif"
+                                                    src="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif"
                                                     style="width: 50px;" alt="{{ $item->name }}"
                                                     class="dropdown-icon img-thumbnail"> {{ $item->name }}
                                             </div>
@@ -151,8 +151,8 @@
                                                  data-value="{{ $item->name }}"
                                                  data-id="{{ $item->id }}"
                                                  data-name="{{ $item->id }}"
-                                                 data-img="@if($item->img_url){{ asset('img/'.$item->img_url) }}@else{{ asset('img/01.png') }}@endif">
-                                                <img src="@if($item->img_url){{ asset('img/'.$item->img_url) }}@else{{ asset('img/01.png') }}@endif"
+                                                 data-img="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif">
+                                                <img src="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif"
                                                      style="width: 50px;" alt="{{ $item->name }}"
                                                      class="dropdown-icon img-thumbnail"> {{ $item->name }}
                                             </div>

@@ -1,17 +1,13 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Http\Controllers;
 
 use App\Models\FoodCategory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use Illuminate\Http\Request;
 
-class FoodCategorySeeder extends Seeder
+class AddUserFoodCategoryController extends Controller
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
+    public function addFoodCategory($userID)
     {
         $array = [
             ['name' => '蔬菜', 'img_url' => '/img/01.png'],
@@ -20,13 +16,13 @@ class FoodCategorySeeder extends Seeder
             ['name' => '飲料', 'img_url' => '/img/04.png'],
             ['name' => '肉類', 'img_url' => '/img/05.png'],
         ];
+
         foreach ($array as $item) {
             $category = new FoodCategory();
             $category->name = $item['name'];
             $category->img_url = $item['img_url'];
-            $category->user_id = 1;
+            $category->user_id = $userID;
             $category->save();
         }
-
     }
 }

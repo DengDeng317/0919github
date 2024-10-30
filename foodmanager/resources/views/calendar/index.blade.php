@@ -20,7 +20,7 @@
                     >
                         <p>{{ $item->name }}</p>
                         <img
-                            src="@if($item->img_url){{ asset('img/'.$item->img_url) }}@else{{ asset('img/01.png') }}@endif">
+                            src="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif">
                         <p>過期日期: {{ $item->expiration_date }}</p>
                     </button>
                 @endforeach
@@ -80,7 +80,7 @@
                 {
                     id: '{{ $value2->id }}',
                     name: '{{ $value2->name }}',
-                    image: '@if($value2->img_url){{ asset('img/'.$value2->img_url) }}@else{{ asset('img/01.png') }}@endif'
+                    image: '@if($value2->img_url){{ asset($value2->img_url) }}@else{{ asset('img/01.png') }}@endif'
                 },
                 @endforeach
             ],
@@ -89,32 +89,16 @@
     </script>
     <script src="{{ asset('js/calendar.js') }}"></script>
     <script src="{{ asset('js/addandedit.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            // 監聽下拉選單的選項
-            $('.dropdown-item').on('click', function () {
-                var food_category = $(this).data('name');
 
-                // 將選中的值放入隱藏的表單欄位中
-                $('#food_category').val(food_category);
-
-            });
-
-            $('.dropdown_item_r').on('click', function () {
-                var food_category = $(this).data('name');
-
-                // 將選中的值放入隱藏的表單欄位中
-                $('#food_category_r').val(food_category);
-
-            });
-        });
-
-    </script>
     <script>
         $(document).ready(function () {
             $('.dropdown-item').on('click', function () {
                 var selectedValue = $(this).data('value'); // 取得 data-value 值
                 var selectedImg = $(this).data('img'); // 取得 data-img 值
+                var food_category = $(this).data('name');
+
+                // 將選中的值放入隱藏的表單欄位中
+                $('#food_category').val(food_category);
 
                 // 建立一個臨時的 Image 物件來檢查圖片的實際大小
                 var img = new Image();
@@ -133,6 +117,10 @@
             $('.category_item_r').on('click', function () {
                 var selectedValue = $(this).data('value'); // 取得 data-value 值
                 var selectedImg = $(this).data('img'); // 取得 data-img 值
+                var food_category = $(this).data('name');
+
+                // 將選中的值放入隱藏的表單欄位中
+                $('#food_category_r').val(food_category);
 
                 // 更新按鈕內容，並將圖片設為固定寬度
                 $('#selected_category_r').html(`

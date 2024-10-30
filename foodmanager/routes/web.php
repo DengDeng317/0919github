@@ -7,6 +7,8 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\FoodStockManagerController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\ManagerTagController;
+
 
 
 /*
@@ -39,5 +41,12 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('FoodStockManager', [FoodStockManagerController::class, 'index'])->name('food_stock_manager');
     Route::post('FoodStockManager', [FoodStockManagerController::class, 'store']);
+
+    Route::get('Tag', [ManagerTagController::class, 'index'])->name('tag');
+    Route::post('Tag', [ManagerTagController::class, 'store']);
+
+    Route::post('addTag', [ManagerTagController::class, 'add_store'])->name('tag.add');
+    Route::post('updateTag', [ManagerTagController::class, 'update_store'])->name('tag.update');
+
 
 });

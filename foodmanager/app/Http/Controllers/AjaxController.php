@@ -17,7 +17,7 @@ class AjaxController extends Controller
                 'food_name' => $food->name,
                 'category' => $food->foodCategory->name,  // 假設類別是關聯模型
                 'food_category_r' => $food->foodCategory->id,  // 假設類別是關聯模型
-                'category_img_url' => $food->foodCategory->img_url ? asset('img/' . $food->foodCategory->img_url) : asset('img/01.png'),
+                'category_img_url' => $food->foodCategory->img_url ? asset($food->foodCategory->img_url) : asset('img/01.png'),
                 'storage_location' => $food->storage_location,
                 'purchase_date' => $food->purchase_date,
                 'quantity' => $food->quantity,

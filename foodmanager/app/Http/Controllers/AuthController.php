@@ -42,6 +42,7 @@ class AuthController extends Controller
     public function registerStore(Request $request)
     {
         $email = $request->email;
+        $username = $request->username;
         $password = $request->password;
         $confirmPassword = $request->confirmPassword;
         if ($password != $confirmPassword)
@@ -52,8 +53,11 @@ class AuthController extends Controller
 
         $user2 = new User();
         $user2->email = $email;
+        $user2->username = $username;
         $user2->password = bcrypt($password);
         $user2->save();
+        $addCategory = new AddUserFoodCategoryController();
+        $addCategory->addFoodCategory($user2->id);
         $this->loginAuth($user2, true);
         return redirect()->route('home');
 

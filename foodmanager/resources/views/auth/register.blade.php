@@ -21,6 +21,9 @@
     <form id="registerForm" action="{{ route('register') }}" method="post">
         @csrf
 
+        <label for="username">名稱</label>
+        <input type="text" id="username" name="username" placeholder="請輸入名稱" required>
+
         <!-- Email 作為帳號 -->
         <label for="email">電子郵件</label>
         <input type="email" id="email" name="email" placeholder="請輸入電子郵件" required>

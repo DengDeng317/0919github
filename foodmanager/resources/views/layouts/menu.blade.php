@@ -25,8 +25,8 @@
             <span>事件管理</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link " href="?main=event_">
+    <li class="nav-item @if($active == 'tag_manager'){{ 'active' }}@endif">
+        <a class="nav-link " href="{{ route('tag') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>標籤管理</span></a>
     </li>
