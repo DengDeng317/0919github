@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>食物紀錄管理系統 - 後端</title>
+    <title>{{ config('app.name') }} - 後端</title>
 
     @include('layouts.css')
 
