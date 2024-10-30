@@ -40,28 +40,32 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link " href="?main=event_">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>設定</span></a>
-        </li>
-
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>其他待開發功能</span>
+                <i class="fas fa-fw fa-cog"></i>
+                <span>設定</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <h6 class="collapse-header">相關設定:</h6>
+                    <a class="collapse-item" href="utilities-color.html">個人設定</a>
+                    <a class="collapse-item" href="utilities-border.html">發送設定</a>
+                    <a class="collapse-item" href="utilities-animation.html">修改密碼</a>
                 </div>
             </div>
+        </li>
+
+
+
+
+
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>其他待開發功能</span></a>
         </li>
 
         <!-- Divider -->
