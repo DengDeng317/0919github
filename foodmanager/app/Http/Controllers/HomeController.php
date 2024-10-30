@@ -23,11 +23,13 @@ class HomeController extends Controller
 
         $today = Carbon::today(); // 或者使用 Carbon::now() 取得現在的時間
         $lastFood = Food::where('user_id', $user_id)
+            ->where('status' , '!=', '完成')
             ->where('expiration_date', '>=', $today)
             ->orderBy('expiration_date', 'asc')
             ->limit(5)
             ->get();
         $allFood = Food::where('user_id', $user_id)
+            ->where('status' , '!=', '完成')
             ->orderBy('expiration_date', 'asc')
             ->get()
             ->groupBy(function ($date) {

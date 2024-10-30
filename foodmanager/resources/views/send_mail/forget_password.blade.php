@@ -8,6 +8,6 @@
 <body>
 <h1>新密碼：{{ $password }}</h1>
 
-<a href="{{ route('login') }}">登入</a>
+<a href="{{ route('login') }}" style="font-size: large;">登入後請盡快更改密碼</a>
 </body>
 </html>

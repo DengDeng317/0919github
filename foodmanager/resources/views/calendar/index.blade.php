@@ -166,5 +166,47 @@
                 }
             });
         }
+
+
+        function markAsComplete(date, index) {
+            // 標記為「完成」
+            // events[date][index].status = '完成';
+            // console.log(index);
+
+            $.ajax({
+                url: '{{ route("success.food", ":id") }}'.replace(':id', index),
+                method: 'get',
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
+
+            // 隱藏當前的資料容器
+            const eventListDiv = document.getElementById('event-list');
+            const eventItems = eventListDiv.getElementsByClassName('event-item');
+            if (eventItems[index]) {
+                eventItems[index].style.display = 'none'; // 立即隱藏該資料容器
+            }
+
+            // 更新日曆以隱藏事件
+            createCalendar(currentYear, currentMonth);
+
+            // 檢查當天是否還有未完成的食物
+            const remainingItems = events[date].filter(item => item.status !== '完成');
+
+            if (remainingItems.length === 0) {
+                // 如果當天所有食物都完成了，顯示「尚無資料」
+                const emptyItem = document.createElement('div');
+                emptyItem.className = 'event-item empty';
+                emptyItem.innerHTML = `<p>尚無資料</p>`;
+                eventListDiv.appendChild(emptyItem);
+            }
+
+            // 更新食物列表以隱藏該事件
+            //showEvents(date);
+        }
     </script>
 @endpush

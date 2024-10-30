@@ -23,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('Tag/Delete/{id}', [ManagerTagController::class, 'tag_delete'])->name('tag.delete');
 
 Route::post('ForgetPassword', [AjaxController::class, 'getForgetPassword'])->name('forget.password');
+
+Route::get('FoodSuccess{id}', [AjaxController::class, 'success_food'])->name('success.food');

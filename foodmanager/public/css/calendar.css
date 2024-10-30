@@ -270,3 +270,33 @@ input[type="month"]:focus {
     outline: none;
     border: none;
 }
+
+.complete-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* 按鈕懸停時變色 */
+.complete-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* 當懸停時稍微放大 */
+}
+
+/* 調整事件項目的樣式，讓按鈕與資料位於同一個容器中 */
+.event-item {
+    display: flex;
+    justify-content: space-between;  /* 元素之間保持距離 */
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    min-height: 60px;
+    transition: background-color 0.3s ease;
+}

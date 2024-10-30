@@ -27,14 +27,14 @@ class CalendarController extends Controller
 
     public function store(Request $request)
     {
-        $foodCategory = $request->food_category;
-        $food_name = $request->food_name;
-        $storage_location = $request->storage_location;
-        $purchase_date = $request->purchase_date;
-        $quantity = $request->quantity;
-        $price = $request->price;
-        $expiry_date = $request->expiry_date;
-        $food_status = $request->food_status;
+        $foodCategory = ($request->food_category)?:null;
+        $food_name = ($request->food_name)?:null;
+        $storage_location = ($request->storage_location)?:null;
+        $purchase_date = ($request->purchase_date)?:null;
+        $quantity = ($request->quantity)?:null;
+        $price = ($request->price)?:null;
+        $expiry_date = ($request->expiry_date)?:null;
+        $food_status = ($request->food_status)?:null;
 
         $food = new Food();
         $food->name = $food_name;
@@ -53,14 +53,14 @@ class CalendarController extends Controller
     public function update(Request $request)
     {
         $foodId = $request->food_id;
-        $foodCategory = $request->food_category;
-        $food_name = $request->food_name;
-        $storage_location = $request->storage_location;
-        $purchase_date = $request->purchase_date;
-        $quantity = $request->quantity;
-        $price = $request->price;
-        $expiry_date = $request->expiry_date;
-        $food_status = $request->food_status;
+        $foodCategory = ($request->food_category)?:null;
+        $food_name = ($request->food_name)?:null;
+        $storage_location = ($request->storage_location)?:null;
+        $purchase_date = ($request->purchase_date)?:null;
+        $quantity = ($request->quantity)?:null;
+        $price = ($request->price)?:null;
+        $expiry_date = ($request->expiry_date)?:null;
+        $food_status = ($request->food_status)?:null;
 
         $food = Food::find($foodId);
         $food->name = $food_name;

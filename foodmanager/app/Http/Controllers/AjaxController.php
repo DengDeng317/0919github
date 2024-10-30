@@ -30,6 +30,13 @@ class AjaxController extends Controller
         }
     }
 
+    public function success_food($id)
+    {
+        $food = Food::find($id);
+        $food->status = "完成";
+        $food->save();
+    }
+
     public function getForgetPassword(Request $request)
     {
         $email = $request->email;
