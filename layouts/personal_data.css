@@ -1,0 +1,99 @@
+body {
+    font-family: "華康特圓體", Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.profile-edit-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-edit-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.image-upload {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profileImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 2px solid #ddd;
+}
+
+#fileInput {
+    display: none;
+}
+
+button.upload-btn { background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+    width: 100%;
+}
+
+button.upload-btn:hover { background-color: #218838;
+}
+
+.name-edit {
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.name-edit label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
