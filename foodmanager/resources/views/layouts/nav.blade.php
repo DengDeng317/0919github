@@ -22,11 +22,11 @@
                  aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
+                    個人設定
                 </a>
                 <a class="dropdown-item" href="#">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
+                    發送設定
                 </a>
                 <a class="dropdown-item" href="{{ route('password.reset') }}">
                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -35,7 +35,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Logout
+                    登出
                 </a>
             </div>
         </li>

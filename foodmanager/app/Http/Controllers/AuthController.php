@@ -79,7 +79,7 @@ class AuthController extends Controller
     {
 
         $data = [
-            'active' => 'calendar',
+            'active' => 'password_reset',
         ];
 
         return view('auth.password_reset', $data);

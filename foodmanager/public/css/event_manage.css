@@ -1,0 +1,153 @@
+body {
+    font-family: Arial, sans-serif; /* 使用 Arial 字體，無法使用時備選 sans-serif */
+    background-color: #f4f4f4; /* 設定頁面背景顏色為淺灰色 */
+}
+
+.folder {
+    border: 1px solid #ccc; /* 設定資料夾邊框為 1px 灰色實線 */
+    margin-bottom: 10px; /* 每個資料夾之間的間距為 10px */
+    padding: 10px; /* 內部填充 10px */
+    background-color: #fff; /* 背景顏色為白色 */
+    transition: background-color 0.3s; /* 背景顏色改變時使用 0.3 秒的過渡效果 */
+}
+
+.folder-header {
+    display: flex; /* 使用 flex 布局 */
+    align-items: center; /* 垂直方向上對齊子項目到中心 */
+    cursor: pointer; /* 將鼠標樣式設定為指針，表明可點擊 */
+}
+
+.folder-header:hover {
+    background-color: #e9e9e9; /* 當滑鼠懸停時，資料夾標題背景顏色變為淺灰色 */
+}
+
+.arrow {
+    font-size: 18px; /* 字體大小為 18px */
+    margin-right: 10px; /* 右邊距離設為 10px */
+    transition: transform 0.3s; /* 在進行旋轉等操作時，設定 0.3 秒的過渡效果 */
+}
+
+.icon {
+    width: 20px; /* 圖示寬度 20px */
+    height: 20px; /* 圖示高度 20px */
+    margin-right: 10px; /* 右側間距 10px */
+}
+
+.folder h2 {
+    margin: 0; /* 移除標題的外間距 */
+    color: #37a346; /* 設定標題顏色為藍色 */
+    font-size: 1.5rem; /* 調整字體大小，使其符合 h4 的大小 */
+    font-weight: normal; /* 根據需要調整字體的粗細 */
+    font-weight: bold;
+}
+
+.content {
+    display: none; /* 初始狀態設為不顯示內容 */
+}
+
+/* 資料格 */
+.carousel-container {
+    position: relative; /* 設置相對定位，便於控制內部的子元素位置 */
+    display: flex; /* 使用 flex 布局 */
+    align-items: center; /* 垂直方向上對齊到中間 */
+    justify-content: center; /* 水平方向上對齊到中心 */
+    width: 150%; /* 容器寬度設置為 100% */
+    margin: 0 auto; /* 使容器在水平方向居中 */
+    padding: 20px; /* 內部填充 20px 以確保按鈕不會超出容器 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 設定陰影，提供立體效果 */
+    border-radius: 10px; /* 設定邊角圓滑程度為 10px */
+    border: 1px solid #ddd; /* 容器邊框設置為 1px 灰色實線 */
+    background-color: #ffffff; /* 背景顏色為白色 */
+}
+
+.card-container {
+    display: flex; /* 使用 flex 布局排列卡片 */
+    flex-wrap: nowrap; /* 卡片不換行 */
+    gap: 10px; /* 卡片之間的間距設為 10px */
+    justify-content: center; /* 卡片在水平方向上居中排列 */
+    padding: 10px 0; /* 上下方填充 10px */
+    overflow: hidden; /* 隱藏超出容器的卡片部分 */
+    width: 100%; /* 保持卡片容器寬度與父容器一致 */
+}
+
+.card {
+    flex: 0 0 20%; /* 每個卡片占據 24% 的空間，寬度不會改變 */
+    box-sizing: border-box; /* 確保 padding 和 border 包含在元素的總寬度內 */
+    border: 1px solid #ddd; /* 卡片邊框設置為 1px 灰色實線 */
+    border-radius: 10px; /* 邊角圓滑程度為 10px */
+    background-color: #ffffff; /* 背景顏色為白色 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 設置陰影，讓卡片有立體感 */
+    padding: 15px; /* 卡片內容的內部填充為 15px */
+    min-width: 200px; /* 設置卡片的最小寬度 */
+    max-width: 200px; /* 設置卡片的最大寬度，保持固定寬度 */
+}
+
+.card-body {
+    padding: 15px; /* 卡片內容內部填充設為 15px */
+    text-align: center; /* 卡片文字置中對齊 */
+}
+
+.card-title {
+    font-size: 1.25rem; /* 標題字體大小 */
+    font-weight: bold; /* 字體加粗 */
+    color: #418f41; /* 設置標題顏色為藍色 */
+}
+
+.card-text {
+    font-size: 1rem; /* 正文字體大小 */
+    color: #333; /* 正文字體顏色設為深灰色 */
+}
+
+.btn-nav {
+    position: absolute; /* 使用絕對定位，方便控制按鈕位置 */
+    top: 50%; /* 垂直方向上居中於容器 */
+    transform: translateY(-50%); /* 將按鈕往上移動自身高度的一半，以實現精確居中 */
+    background-color: #277218; /* 按鈕背景顏色設為藍色 */
+    border: none; /* 移除按鈕邊框 */
+    color: #fff; /* 按鈕文字顏色設為白色 */
+    font-size: 2rem; /* 按鈕文字大小設為 2rem */
+    padding: 10px; /* 內部填充 10px */
+    cursor: pointer; /* 設定鼠標樣式為指針 */
+    border-radius: 50%; /* 按鈕設為圓形 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 設置按鈕的陰影 */
+    z-index: 1000; /* 設定較高的層級，確保按鈕顯示在其他元素之上 */
+}
+
+.btn-nav:hover {
+    background-color: #00b309; /* 當鼠標懸停時，按鈕背景顏色folder變深 */
+}
+
+#prevBtn {
+    left: 20px; /* 將前一個按鈕放置於容器左側，距離 5px */
+}
+
+#nextBtn {
+    right: 20px; /* 將下一個按鈕放置於容器右側，距離 5px */
+}
+
+.card-img {
+    width: 100px; /* 設置圖片寬度 */
+    height: 100px; /* 設置圖片高度 */
+    border-radius: 50%; /* 設置邊角為 50%，使其成為圓形 */
+    object-fit: cover; /* 確保圖片內容不變形，填滿容器 */
+    margin-bottom: 10px; /* 與標題之間的間距 */
+    display: block; /* 確保圖片不受其他元素的影響而變形 */
+    margin: 0 auto; /* 確保圖片水平置中 */
+
+}
+
+
+/* 避免跑板 */
+
+.folder, .carousel-container {
+}
+
+html, body {
+    overflow-x: hidden; /* 禁止水平滾動 */
+}
+
+.container {
+    margin-left: -10px; /* 這可能會導致容器向左溢出 */
+    /*margin-right: -10px;  這可能會導致容器向右溢出 */
+}
+

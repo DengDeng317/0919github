@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\ManagerTagController;
 use App\Http\Controllers\SendMailController;
+use App\Http\Controllers\EventManageController;
 
 
 /*
@@ -50,4 +51,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('addTag', [ManagerTagController::class, 'add_store'])->name('tag.add');
     Route::post('updateTag', [ManagerTagController::class, 'update_store'])->name('tag.update');
+
+    Route::get('EventManage', [EventManageController::class, 'index'])->name('event.manage');
 });
