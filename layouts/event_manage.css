@@ -1,7 +1,6 @@
 body {
   font-family: Arial, sans-serif; /* 使用 Arial 字體，無法使用時備選 sans-serif */
   background-color: #f4f4f4; /* 設定頁面背景顏色為淺灰色 */
-
 }
 
 .folder {
@@ -39,6 +38,9 @@ body {
 .folder h2 {
   margin: 0; /* 移除標題的外間距 */
   color: #37a346; /* 設定標題顏色為藍色 */
+  font-size: 1.5rem; /* 調整字體大小，使其符合 h4 的大小 */
+  font-weight: normal; /* 根據需要調整字體的粗細 */
+  font-weight: bold;
 }
 
 .content {
@@ -80,7 +82,7 @@ body {
   background-color: #ffffff; /* 背景顏色為白色 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 設置陰影，讓卡片有立體感 */
   padding: 15px; /* 卡片內容的內部填充為 15px */
-  min-width: 150px; /* 設置卡片的最小寬度 */
+  min-width: 200px; /* 設置卡片的最小寬度 */
   max-width: 200px; /* 設置卡片的最大寬度，保持固定寬度 */
 }
 
@@ -133,5 +135,24 @@ body {
   border-radius: 50%; /* 設置邊角為 50%，使其成為圓形 */
   object-fit: cover; /* 確保圖片內容不變形，填滿容器 */
   margin-bottom: 10px; /* 與標題之間的間距 */
+  display: block; /* 確保圖片不受其他元素的影響而變形 */
+  margin: 0 auto; /* 確保圖片水平置中 */
+
+}
+
+
+/* 避免跑板 */
+
+.folder, .carousel-container {
+  width: 100%;
+  max-width: 1200px; /* 設置一個合適的最大寬度來避免超過視窗 */
+}
+
+html, body {
+  overflow-x: hidden; /* 禁止水平滾動 */
+}
+
+.container {
+  margin-left: -10px; /* 這可能會導致容器向左溢出 */
 }
 
