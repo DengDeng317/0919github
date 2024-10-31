@@ -39,7 +39,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
 
-    @php($arr = in_array($active, ['password_reset']))
+    @php($arr = in_array($active, ['password_reset','personal','notification']))
     <li class="nav-item @if($arr){{ ' active' }}@endif">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
            aria-expanded="true" aria-controls="collapseUtilities">
@@ -49,8 +49,8 @@
         <div id="collapseUtilities" class="collapse @if($arr){{ ' show' }}@endif" aria-labelledby="headingUtilities"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="utilities-border.html">個人設定</a>
-                <a class="collapse-item" href="utilities-animation.html">發送設定</a>
+                <a class="collapse-item @if($active == 'personal'){{ 'active' }}@endif" href="{{ route('personal') }}">個人設定</a>
+                <a class="collapse-item @if($active == 'notification'){{ 'active' }}@endif" href="{{ route('notification') }}">發送設定</a>
                 <a class="collapse-item @if($active == 'password_reset'){{ 'active' }}@endif" href="{{ route('password.reset') }}">修改密碼</a>
             </div>
         </div>

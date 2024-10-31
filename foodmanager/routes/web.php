@@ -10,6 +10,8 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\ManagerTagController;
 use App\Http\Controllers\SendMailController;
 use App\Http\Controllers\EventManageController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\NotificationController;
 
 
 /*
@@ -53,4 +55,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('updateTag', [ManagerTagController::class, 'update_store'])->name('tag.update');
 
     Route::get('EventManage', [EventManageController::class, 'index'])->name('event.manage');
+
+    Route::get('Personal', [PersonalController::class, 'index'])->name('personal');
+    Route::post('Personal', [PersonalController::class, 'store']);
+
+    Route::get('Notification', [NotificationController::class, 'index'])->name('notification');
+    Route::post('Notification', [NotificationController::class, 'store']);
 });

@@ -8,6 +8,8 @@ body {
     margin-bottom: 10px; /* 每個資料夾之間的間距為 10px */
     padding: 10px; /* 內部填充 10px */
     background-color: #fff; /* 背景顏色為白色 */
+    min-width: 1750px; /* 設置卡片的最小寬度 */
+    max-width: 1750px; /* 設置卡片的最大寬度，保持固定寬度 */
     transition: background-color 0.3s; /* 背景顏色改變時使用 0.3 秒的過渡效果 */
 }
 
@@ -52,6 +54,8 @@ body {
     align-items: center; /* 垂直方向上對齊到中間 */
     justify-content: center; /* 水平方向上對齊到中心 */
     width: 150%; /* 容器寬度設置為 100% */
+    min-width: 1650px;
+    max-width: 1650px; /* 最大寬度限制為 1750px，避免過度擴展 */
     margin: 0 auto; /* 使容器在水平方向居中 */
     padding: 20px; /* 內部填充 20px 以確保按鈕不會超出容器 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 設定陰影，提供立體效果 */
@@ -140,6 +144,8 @@ body {
 /* 避免跑板 */
 
 .folder, .carousel-container {
+    width: 90%;
+    max-width: 1000px; /* 設置一個合適的最大寬度來避免超過視窗 */
 }
 
 html, body {

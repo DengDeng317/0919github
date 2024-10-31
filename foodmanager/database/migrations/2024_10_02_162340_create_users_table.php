@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('username')->nullable();
             $table->string('password');
             $table->string('email');
+            $table->string('img_url')->nullable();
+            $table->integer('line_open')->default(0);
+            $table->integer('email_open')->default(0);
+            $table->integer('days')->default(3);
             $table->rememberToken();
             $table->timestamps();
         });

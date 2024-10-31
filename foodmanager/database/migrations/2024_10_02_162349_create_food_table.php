@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('foods', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->integer('quantity');
-            $table->integer('price');
-            $table->string('storage_location');
-            $table->date('purchase_date');
-            $table->date('expiration_date');
+            $table->string('name')->nullable();
+            $table->integer('quantity')->nullable();
+            $table->integer('price')->nullable();
+            $table->string('storage_location')->nullable();
+            $table->date('purchase_date')->nullable();
+            $table->date('expiration_date')->nullable();
             $table->string('status');
             $table->unsignedBigInteger('label_id')->nullable()->comment('標籤ID');
             $table->unsignedBigInteger('food_category_id')->nullable()->comment('類別ID');
