@@ -40,9 +40,9 @@
                                         @else
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img src="image1.jpg" alt="圓形圖片" class="card-img">
-                                                    <h5 class="card-title">Card 1</h5>
-                                                    <p class="card-text">This is card number 1.</p>
+                                                    <img src="{{ asset('img/01.png') }}" alt="圓形圖片" class="card-img">
+                                                    <h5 class="card-title">無紀錄</h5>
+                                                    <p class="card-text"> </p>
                                                 </div>
                                             </div>
                                         @endif
@@ -147,9 +147,9 @@
                                         @else
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img src="image1.jpg" alt="圓形圖片" class="card-img">
-                                                    <h5 class="card-title">Card 1</h5>
-                                                    <p class="card-text">This is card number 1.</p>
+                                                    <img src="{{ asset('img/01.png') }}" alt="圓形圖片" class="card-img">
+                                                    <h5 class="card-title">無紀錄</h5>
+                                                    <p class="card-text"> </p>
                                                 </div>
                                             </div>
                                         @endif
