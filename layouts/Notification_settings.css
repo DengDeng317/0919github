@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif; /* 設置頁面字體為 Arial，後備為 sans-serif */
+    background-color: #f8f8f8; /* 設置背景顏色為淡灰色 */
+    display: flex; /* 使用 Flexbox 將內容置中對齊 */
+    justify-content: center; /* 水平置中對齊 */
+    align-items: center; /* 垂直置中對齊 */
+    height: 100vh; /* 設置頁面高度為 100% 視窗高度 */
+    margin: 0; /* 移除頁面預設外邊距 */
+}
+
+.notification-settings-container {
+    background-color: #ffffff; /* 設置容器背景顏色為白色 */
+    padding: 30px; /* 設置內邊距為 30 像素 */
+    border-radius: 10px; /* 設置圓角邊框為 10 像素 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 設置陰影效果 */
+    width: 400px; /* 設置容器寬度為 400 像素 */
+    text-align: left; /* 設置文字左對齊 */
+    position: relative; /* 設置相對定位，便於內部元素使用絕對定位 */
+}
+
+.notification-option {
+    margin-bottom: 30px; /* 設置每個選項之間的下邊距為 20 像素 */
+    display: flex; /* 使用 Flexbox 排列內容 */
+    align-items: center; /* 將項目垂直置中對齊 */
+    justify-content: space-between; /* 使標籤與開關兩端對齊 */
+}
+
+label {
+    font-weight: bold; /* 設置標籤字體加粗 */
+    font-size: 1em; /* 設置字體大小為 1 倍的基準字體大小 */
+}
+
+input[type="number"] {
+    width: 80px; /* 設置輸入框寬度為 80 像素 */
+    padding: 5px; /* 設置輸入框內邊距為 5 像素 */
+    border: 1px solid #ccc; /* 設置邊框顏色為淺灰色，寬度為 1 像素 */
+    border-radius: 5px; /* 設置邊框圓角為 5 像素 */
+    font-size: 1em; /* 設置字體大小為 1 倍的基準字體大小 */
+    text-align: center; /* 設置文字居中對齊 */
+}
+
+.warning-container {
+    display: flex; /* 使用 Flexbox 將圖示與文字排列 */
+    align-items: center; /* 將圖示與文字垂直置中對齊 */
+    position: absolute; /* 絕對定位，以使其貼齊在相關選項下方 */
+    top: 40px; /* 設置距離頂部的距離以便其位於相關選項下方，具體值可根據實際調整 */
+    left: 4; /* 設置左側對齊父容器 */
+}
+
+.warning-icon {
+    width: 16px; /* 設置警告圖示寬度為 16 像素 */
+    height: 16px; /* 設置警告圖示高度為 16 像素 */
+    margin-right: 5px; /* 設置圖示與文字之間的右邊距為 5 像素 */
+}
+
+.warning-text {
+    color: red; /* 設置警告文字顏色為紅色 */
+    font-size: 0.8em; /* 設置字體大小為 0.8 倍的基準字體大小 */
+}
+
+/* 開關樣式 */
+.switch {
+    position: relative; /* 設置相對定位以便控制滑塊位置 */
+    display: inline-block; /* 設置為行內區塊元素 */
+    width: 50px; /* 設置開關寬度為 50 像素 */
+    height: 25px; /* 設置開關高度為 25 像素 */
+}
+
+.switch input {
+    opacity: 0; /* 將原始的 checkbox 隱藏 */
+    width: 0; /* 將寬度設置為 0 以隱藏 */
+    height: 0; /* 將高度設置為 0 以隱藏 */
+}
+
+.slider {
+    position: absolute; /* 絕對定位以便覆蓋隱藏的 checkbox */
+    cursor: pointer; /* 設置滑鼠為點擊手勢 */
+    top: 0; /* 設置頂部對齊父容器 */
+    left: 0; /* 設置左側對齊父容器 */
+    right: 0; /* 設置右側對齊父容器 */
+    bottom: 0; /* 設置底部對齊父容器 */
+    background-color: #ccc; /* 設置滑塊背景顏色為淺灰色 */
+    transition: .4s; /* 設置背景顏色和滑塊位置的過渡時間為 0.4 秒 */
+    border-radius: 25px; /* 設置滑塊圓角為 25 像素 */
+}
+
+.slider:before {
+    position: absolute; /* 絕對定位以便控制滑塊位置 */
+    content: ""; /* 空內容，用來表示滑塊 */
+    height: 17px; /* 設置滑塊高度為 17 像素 */
+    width: 17px; /* 設置滑塊寬度為 17 像素 */
+    left: 4px; /* 設置滑塊初始位置距左側 4 像素 */
+    bottom: 4px; /* 設置滑塊距底部 4 像素 */
+    background-color: white; /* 設置滑塊顏色為白色 */
+    transition: .4s; /* 設置滑塊移動的過渡時間為 0.4 秒 */
+    border-radius: 50%; /* 設置滑塊圓角為 50% 以達到圓形效果 */
+}
+
+input:checked + .slider {
+    background-color: #4caf50; /* 當開關打開時，設置背景顏色為綠色 */
+}
+
+input:checked + .slider:before {
+    transform: translateX(25px); /* 當開關打開時，滑塊向右移動 25 像素 */
+}
