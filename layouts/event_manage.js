@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let count = 0;
         let index = currentIndex;
-        while (count < 8) {
+        while (count < 7) {
             cards[index].style.display = 'block';
             cards[index].style.order = count;
             index = (index + 1) % cards.length;
