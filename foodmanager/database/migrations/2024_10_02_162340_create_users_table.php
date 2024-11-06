@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('line_open')->default(0);
             $table->integer('email_open')->default(0);
             $table->integer('days')->default(3);
+            $table->string('line_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

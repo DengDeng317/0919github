@@ -12,11 +12,6 @@ class SendMailController extends Controller
 {
     public function send()
     {
-//        Mail::raw('這是測試郵件內容', function ($message) {
-//            $message->to('applemine92601@gmail.com')
-//                ->subject('測試郵件');
-//        });
-
         // 获取当前日期和未来5天的日期
         $now = Carbon::now();
         $expirationLimit = $now->copy()->addDays(5);

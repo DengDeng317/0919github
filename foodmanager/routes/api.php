@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ManagerTagController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\LineBotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('Tag/Delete/{id}', [ManagerTagController::class, 'tag_delete'])->name
 Route::post('ForgetPassword', [AjaxController::class, 'getForgetPassword'])->name('forget.password');
 
 Route::get('FoodSuccess{id}', [AjaxController::class, 'success_food'])->name('success.food');
+
+Route::post('LineEmail', [LineBotController::class, 'insertLineID']);
