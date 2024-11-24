@@ -37,7 +37,7 @@ body {
 
 .folder h2 {
     margin: 0; /* 移除標題的外間距 */
-    color: #37a346; /* 設定標題顏色為藍色 */
+    color: #ffa324; /* 設定標題顏色為藍色 */
     font-size: 1.5rem; /* 調整字體大小，使其符合 h4 的大小 */
     font-weight: normal; /* 根據需要調整字體的粗細 */
     font-weight: bold;
@@ -94,7 +94,7 @@ body {
 .card-title {
     font-size: 1.25rem; /* 標題字體大小 */
     font-weight: bold; /* 字體加粗 */
-    color: #418f41; /* 設置標題顏色為藍色 */
+    color: #ffa324; /* 設置標題顏色為藍色 */
 }
 
 .card-text {
@@ -106,7 +106,7 @@ body {
     position: absolute; /* 使用絕對定位，方便控制按鈕位置 */
     top: 50%; /* 垂直方向上居中於容器 */
     transform: translateY(-50%); /* 將按鈕往上移動自身高度的一半，以實現精確居中 */
-    background-color: #277218; /* 按鈕背景顏色設為藍色 */
+    background-color: #ffd46f; /* 按鈕背景顏色設為藍色 */
     border: none; /* 移除按鈕邊框 */
     color: #fff; /* 按鈕文字顏色設為白色 */
     font-size: 2rem; /* 按鈕文字大小設為 2rem */
@@ -118,7 +118,7 @@ body {
 }
 
 .btn-nav:hover {
-    background-color: #00b309; /* 當鼠標懸停時，按鈕背景顏色folder變深 */
+    background-color: #f5c557; /* 當鼠標懸停時，按鈕背景顏色folder變深 */
 }
 
 #prevBtn {

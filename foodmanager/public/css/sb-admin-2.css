@@ -11103,8 +11103,8 @@ a:focus {
 
 .bg-gradient-primary {
   /* 主頁顏色 傳送門*/
-  background-color: #dce5d3;
-  background-image: linear-gradient(180deg, #dce5d3 10%, #dce5d3 100%);
+  background-color: #fff0e9;
+  background-image: linear-gradient(180deg, #fff0e9 10%, #fff0e9 100%);
   background-size: cover;
 }
 
@@ -11116,8 +11116,8 @@ a:focus {
 
 .bg-gradient-success {
   /* 測邊欄 顏色 可漸層 傳送門 */
-  background-color: #4f7d25;
-  background-image: linear-gradient(180deg, #4f7d25 10%, #4f7d25 100%);
+  background-color: #f5a19c;
+  background-image: linear-gradient(180deg, #f5a19c 10%, #f5a19c 100%);
   background-size: cover;
 }
 
@@ -11526,11 +11526,19 @@ a:focus {
   color: #858796;
 }
 
+/*傳送門*/
+/* 側邊欄整體字體樣式 */
 .sidebar {
-  width: 6.5rem;
+  width: 10.5rem;
   min-height: 100vh;
+  
 }
-
+/* 側邊欄中的每個連結文字樣式 */
+.sidebar .nav-link {
+  font-size: 2.2rem; /*側邊欄文字的眶高度間距*/
+  font-weight: bold; /* 文字加粗 */
+  color: #ffffff; /* 設置文字顏色 */
+}
 .sidebar .nav-item {
   position: relative;
 }
@@ -11546,7 +11554,7 @@ a:focus {
 }
 
 .sidebar .nav-item .nav-link span {
-  font-size: 0.65rem;
+  font-size: 5.65rem;
   display: block;
 }
 
@@ -11575,7 +11583,7 @@ a:focus {
 .sidebar .nav-item .collapsing .collapse-inner {
   padding: .5rem 0;
   min-width: 10rem;
-  font-size: 0.85rem;
+  font-size: 1.5rem; /*設定收縮欄位 字體大小*/
   margin: 0 0 1rem 0;
 }
 
@@ -11658,7 +11666,7 @@ a:focus {
 .sidebar .sidebar-brand {
   height: 4.375rem;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 2rem; /*LOGO名稱文字大小*/
   font-weight: 800;
   padding: 1.5rem 1rem;
   text-align: center;
@@ -11668,7 +11676,7 @@ a:focus {
 }
 
 .sidebar .sidebar-brand .sidebar-brand-icon i {
-  font-size: 2rem;
+  font-size: 5rem;
 }
 
 .sidebar .sidebar-brand .sidebar-brand-text {
@@ -11716,7 +11724,7 @@ a:focus {
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 14rem !important;
+    width: 20rem !important;  /*側邊欄寬度 傳送門*/
   }
 
   .sidebar .nav-item .collapse {
@@ -11752,12 +11760,12 @@ a:focus {
   }
 
   .sidebar .nav-item .nav-link i {
-    font-size: 0.85rem;
+    font-size: 1.5rem; /*側邊icon大小*/
     margin-right: 0.25rem;
   }
 
   .sidebar .nav-item .nav-link span {
-    font-size: 0.85rem;
+    font-size: 1.5rem; /*展開後側標欄文字大小*/
     display: inline;
   }
 
@@ -11777,7 +11785,7 @@ a:focus {
   }
 
   .sidebar .sidebar-brand .sidebar-brand-icon i {
-    font-size: 2rem;
+    font-size: 3rem; /*LOGO大小*/
   }
 
   .sidebar .sidebar-brand .sidebar-brand-text {
@@ -11832,7 +11840,7 @@ a:focus {
   }
 
   .sidebar.toggled .nav-item .nav-link span {
-    font-size: 0.65rem;
+    font-size: 1rem;  /*摺疊 文字大小*/
     display: block;
   }
 
@@ -11845,7 +11853,8 @@ a:focus {
   }
 
   .sidebar.toggled .sidebar-brand .sidebar-brand-icon i {
-    font-size: 2rem;
+    font-size: 3rem;
+    /*摺疊 LOGO大小*/
   }
 
   .sidebar.toggled .sidebar-brand .sidebar-brand-text {
@@ -11891,7 +11900,7 @@ a:focus {
 .sidebar-light .nav-item .nav-link:active,
 .sidebar-light .nav-item .nav-link:focus,
 .sidebar-light .nav-item .nav-link:hover {
-  color: #dce5d3;
+  color: #e7e7e7;
   /*#6e707e*/
   /*上至下 前三移過去文字的顏色*/
 }
@@ -11899,7 +11908,7 @@ a:focus {
 .sidebar-light .nav-item .nav-link:active i,
 .sidebar-light .nav-item .nav-link:focus i,
 .sidebar-light .nav-item .nav-link:hover i {
-  color: #dce5d3;
+  color: #e7e7e7;
   /*#6e707e*/
   /*上至下 前三移過去圖案LOGO的顏色*/
 }
@@ -11917,7 +11926,7 @@ a:focus {
 }
 
 .sidebar-light .nav-item.active .nav-link i {
-  color: #ffffff;
+  color: #ffa324;
   /*#6e707e*/
   /*第四大欄名稱 圖片顏色*/
 }
@@ -11929,13 +11938,13 @@ a:focus {
 }
 
 .sidebar-light #sidebarToggle::after {
-  color: #4f7d25;
+  color: #ff9191;
   /*#b7b9cc*/
   /*收縮按鈕 箭頭文字的顏色*/
 }
 
 .sidebar-light #sidebarToggle:hover {
-  background-color: #dce5d3;
+  background-color: #eae1e1;
   /*#dddfeb*/
   /*收縮按鈕 移動過去的背景顏色*/
 }

@@ -49,7 +49,7 @@ h1 {
 }
 
 .month-navigation button {
-    background-color: #4CAF50;
+    background-color: #ffa324;
     color: white;
     border: none;
     width: 40px;
@@ -63,7 +63,7 @@ h1 {
 }
 
 .month-navigation button:hover {
-    background-color: #45a049;
+    background-color: #ffa324;
     transform: scale(1.1);
 }
 
@@ -80,7 +80,7 @@ input[type="month"] {
 }
 
 input[type="month"]:focus {
-    border-color: #4CAF50;
+    border-color: #ff9696;
     outline: none;
 }
 
@@ -113,14 +113,14 @@ input[type="month"]:focus {
 
 /* 當天日期 */
 .today {
-    color: #268545;
+    color: #ffa324;
     font-weight: bold;
 }
 
 /* 有事件的日期，格子外框顏色 */
 .event {
-    background-color: #56aa79;
-    border-color: #109447;
+    background-color: #ffd6d6;
+    border-color: #ff9696;
     color: #ffffff;
 }
 
@@ -272,7 +272,7 @@ input[type="month"]:focus {
 }
 
 .complete-btn {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 8px 12px;
@@ -283,7 +283,7 @@ input[type="month"]:focus {
 
 /* 按鈕懸停時變色 */
 .complete-btn:hover {
-    background-color: #45a049;
+    background-color: #ff990a;
     transform: scale(1.05); /* 當懸停時稍微放大 */
 }
 

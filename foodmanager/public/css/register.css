@@ -59,7 +59,7 @@ input {
 }
 
 input:focus {
-    border-color: #4CAF50;
+    border-color: #5091de;
     outline: none;
 }
 
@@ -90,7 +90,7 @@ input:focus {
     left: 0;
     width: 70px; /* 縮小寬度 */
     height: 70px; /* 縮小高度 */
-    background-color: #4CAF50;
+    background-color: #3783e0;
     border-radius: 0 0 20px 0; /* 調整邊角弧度 */
     color: white;
     font-size: 1rem; /* 調整字體大小 */
@@ -114,7 +114,7 @@ input:focus {
 }
 
 .page-corner-left:hover {
-    background-color: #45a049;
+    background-color: #5091de;
 }
 
 .page-corner-left a {
@@ -126,7 +126,7 @@ input:focus {
 button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #4CAF50;
+    background-color: #5091de;
     color: white;
     border: none;
     border-radius: 5px;
@@ -136,7 +136,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #5091de;
 }
 
 /* 提示文字樣式 */

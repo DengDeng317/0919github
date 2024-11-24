@@ -60,7 +60,7 @@ input {
 }
 
 input:focus {
-    border-color: #4CAF50;
+    border-color: #ffa324;
     outline: none;
 }
 
@@ -113,7 +113,7 @@ input:focus {
 
 /* 忘記密碼連結樣式 */
 .forgot-password a {
-    color: #4CAF50;
+    color: #ffa324;
     text-decoration: none;
     font-size: 1rem; /* 調整忘記密碼的字體大小 */
     margin: 0;
@@ -127,7 +127,7 @@ input:focus {
 button {
     width: 100%;
     padding: 0.9rem; /* 放大按鈕的內邊距 */
-    background-color: #4CAF50;
+    background-color: #ffa324;
     color: white;
     border: none;
     border-radius: 5px;
@@ -137,7 +137,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #ffa324;
 }
 
 /* 右上角書頁翻轉效果的按鈕 */
@@ -147,7 +147,7 @@ button:hover {
     right: 0;
     width: 80px; /* 縮小寬度 */
     height: 80px; /* 縮小高度 */
-    background-color: #4CAF50;
+    background-color: #ff9d15;
     border-radius: 0 0 0 20px; /* 調整邊角弧度 */
     color: white;
     font-size: 1rem; /* 調整字體大小 */
@@ -170,7 +170,7 @@ button:hover {
 }
 
 .page-corner-right:hover {
-    background-color: #45a049;
+    background-color: #ffa324;
 }
 
 .page-corner-right a {
@@ -246,7 +246,7 @@ button:hover {
 #sendEmailButton {
     width: 100%;
     padding: 0.75rem;
-    background-color: #4CAF50;
+    background-color: #ffa324;
     color: white;
     border: none;
     border-radius: 5px;
@@ -256,7 +256,7 @@ button:hover {
 }
 
 #sendEmailButton:hover {
-    background-color: #45a049;
+    background-color: #ffa324;
 }
 
 #countdownText {
