@@ -24,7 +24,7 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column bg-gradient-primary" style="background-image: url('{{ asset('img/backimg.png') }}')">
+        <div id="content-wrapper" class="d-flex flex-column bg-gradient-primary" style="background-image: url('{{ asset('img/backimg.png') }}');background-repeat: no-repeat;background-position: right top;">
 
             <!-- Main Content -->
 
