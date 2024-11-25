@@ -15,7 +15,6 @@
                     <span class="slider"></span>
                 </label>
                 <div class="warning-container">
-                    <img src="exclamation-icon.png" alt="警告圖示" class="warning-icon">
                     <p class="warning-text">如果開啟此功能，可能每天都會收到一封 E-mail</p>
                 </div>
             </div>
@@ -40,6 +39,12 @@
 
             <button type="submit">儲存修改</button>
         </form>
+        <div class="text-center">
+            <img src="{{ asset('img/QRCode.png') }}" alt="">
+            <div>
+                <p class="warning-text">如要啟用此功能，請先加入官方賴！</p>
+            </div>
+        </div>
     </div>
 @endsection
 
