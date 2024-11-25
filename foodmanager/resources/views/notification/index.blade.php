@@ -37,7 +37,7 @@
                        value="@if($getUser->days){{ $getUser->days }}@else{{ '3' }}@endif">
             </div>
 
-            <button type="submit">儲存修改</button>
+            <button type="submit" class="btn btn-primary">儲存修改</button>
         </form>
         <div class="text-center">
             <img src="{{ asset('img/QRCode.png') }}" alt="">
