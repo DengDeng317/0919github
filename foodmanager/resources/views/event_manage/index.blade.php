@@ -8,7 +8,6 @@
                 <div class="folder" id="current-folder">
                     <div class="folder-header" onclick="toggleFolder('current')">
                         <span class="arrow" id="arrow-current">▼</span>
-                        <img src="icon_current.png" alt="圖示" class="icon">
                         <h2>當前紀錄</h2>
                     </div>
                     <div id="current" class="content">
@@ -40,7 +39,7 @@
                                         @else
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img src="{{ asset('img/01.png') }}" alt="圓形圖片" class="card-img">
+                                                    <img src="{{ asset('img/x.png') }}" alt="圓形圖片" class="card-img">
                                                     <h5 class="card-title">無紀錄</h5>
                                                     <p class="card-text"> </p>
                                                 </div>
@@ -62,7 +61,6 @@
                 <div class="folder" id="waste-folder">
                     <div class="folder-header" onclick="toggleFolder('waste')">
                         <span class="arrow" id="arrow-waste">▼</span>
-                        <img src="icon_waste.png" alt="圖示" class="icon">
                         <h2>廚餘桶紀錄</h2>
                     </div>
                     <div id="waste" class="content">
@@ -94,7 +92,7 @@
                                         @else
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img src="{{ asset('img/01.png') }}" alt="圓形圖片" class="card-img">
+                                                    <img src="{{ asset('img/x.png') }}" alt="圓形圖片" class="card-img">
                                                     <h5 class="card-title">無紀錄</h5>
                                                     <p class="card-text"> </p>
                                                 </div>
@@ -115,7 +113,6 @@
                 <div class="folder" id="finished-folder">
                     <div class="folder-header" onclick="toggleFolder('finished')">
                         <span class="arrow" id="arrow-finished">▼</span>
-                        <img src="icon_finished.png" alt="圖示" class="icon">
                         <h2>吃完紀錄</h2>
                     </div>
                     <div id="finished" class="content">
@@ -147,7 +144,7 @@
                                         @else
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <img src="{{ asset('img/01.png') }}" alt="圓形圖片" class="card-img">
+                                                    <img src="{{ asset('img/x.png') }}" alt="圓形圖片" class="card-img">
                                                     <h5 class="card-title">無紀錄</h5>
                                                     <p class="card-text"> </p>
                                                 </div>
