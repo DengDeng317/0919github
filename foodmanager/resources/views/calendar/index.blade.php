@@ -12,7 +12,7 @@
                 <!-- 這裡會動態插入即將過期的物品 -->
                 @foreach($lastFood as $item)
 
-                    <button type="button" class="upcoming-item"
+                <button type="button" class="upcoming-item"
                             data-toggle="modal"
                             data-target=".bd-example-modal-lg2"
                             data-id="{{ $item->id }}"
@@ -20,7 +20,7 @@
                     >
                         <p>{{ $item->name }}</p>
                         <img
-                            src="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif">
+                            src="@if($item->foodCategory->img_url){{ asset($item->foodCategory->img_url) }}@else{{ asset('img/01.png') }}@endif">
                         <p>過期日期: {{ $item->expiration_date }}</p>
                     </button>
                 @endforeach

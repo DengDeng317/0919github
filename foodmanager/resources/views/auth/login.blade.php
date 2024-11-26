@@ -11,7 +11,7 @@
     <!-- 引入自訂的 CSS -->
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #fff8d9; background-image: url('{{ asset('img/backimg2.png') }}');background-repeat: no-repeat;background-position: right bottom;">
 
 <div class="page-container" id="loginContainer">
     <!-- 右上角書頁翻轉效果按鈕 -->

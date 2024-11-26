@@ -34,7 +34,7 @@ class CalendarController extends Controller
         $quantity = ($request->quantity)?:null;
         $price = ($request->price)?:null;
         $expiry_date = ($request->expiry_date)?:null;
-        $food_status = ($request->food_status)?:null;
+        $food_status = ($request->food_status)?:'過期';
 
         $food = new Food();
         $food->name = $food_name;

@@ -29,7 +29,7 @@
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <img class="card-img"
-                                                                 src="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif">
+                                                                 src="@if($item->foodCategory->img_url){{ asset($item->foodCategory->img_url) }}@else{{ asset('img/01.png') }}@endif">
                                                             <h5 class="card-title">{{ $item->name }}</h5>
                                                             <p class="card-text">過期日期 :<br> {{ $item->expiration_date }}</p>
                                                         </div>
@@ -82,7 +82,7 @@
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <img class="card-img"
-                                                                 src="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif">
+                                                                 src="@if($item->foodCategory->img_url){{ asset($item->foodCategory->img_url) }}@else{{ asset('img/01.png') }}@endif">
                                                             <h5 class="card-title">{{ $item->name }}</h5>
                                                             <p class="card-text">過期日期 :<br> {{ $item->expiration_date }}</p>
                                                         </div>
@@ -134,7 +134,7 @@
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <img class="card-img"
-                                                                 src="@if($item->img_url){{ asset($item->img_url) }}@else{{ asset('img/01.png') }}@endif">
+                                                                 src="@if($item->foodCategory->img_url){{ asset($item->foodCategory->img_url) }}@else{{ asset('img/01.png') }}@endif">
                                                             <h5 class="card-title">{{ $item->name }}</h5>
                                                             <p class="card-text">過期日期 :<br> {{ $item->expiration_date }}</p>
                                                         </div>
