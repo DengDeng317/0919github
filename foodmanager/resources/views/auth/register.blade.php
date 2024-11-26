@@ -9,7 +9,7 @@
     <!-- 引入自訂的 CSS -->
     <link href="{{ asset('css/register.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #fff8d9; background-image: url('{{ asset('img/backimg2.png') }}');background-repeat: no-repeat;background-position: right bottom;background-size: cover;">
 
 <div class="page-container" id="registerContainer">
     <!-- 左上角書頁翻轉效果按鈕 -->
